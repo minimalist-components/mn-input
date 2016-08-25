@@ -1,8 +1,19 @@
 let prototype = Object.create(HTMLElement.prototype);
-prototype.createdCallback = createdCallback;
+prototype.createdCallback = MNInput;
 document.registerElement('mn-input', {prototype});
 
-function createdCallback() {
+function MNInput() {
+  let types = [
+    'text',
+    'password',
+  ]
+  // console.log(this.getAttribute('type'));
+  let supportedType = types.indexOf(this.getAttribute('type')) >= 0 || this.getAttribute('type') === null;
+  if (!supportedType) {
+    let error = new Error('Unsupported type - only text and password is supported');
+    throw error;
+    return error;
+  }
   let shadowDom = this.createShadowRoot();
 
   let input = document.createElement('input');
@@ -17,6 +28,11 @@ function createdCallback() {
 
   let name = this.getAttribute('name') || '';
   input.setAttribute('name', name);
+
+  let disabled = this.getAttribute('disabled');
+  if (disabled) {
+    input.setAttribute('disabled', disabled);
+  }
 
   let placeholder = this.getAttribute('placeholder');
   if(placeholder) {

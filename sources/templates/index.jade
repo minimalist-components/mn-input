@@ -11,10 +11,15 @@ html
 body
   h1 Minimalist inputs
 
-  h2 .input
   div
-    input.input(placeholder='Username', name='username', autocomplete='off')
-    input.input(type='password' placeholder='Password', autocomplete='off')
+    h2 mn-input
+    mn-input(placeholder='Username')
+    mn-input(placeholder='Password', type='password')
+    mn-input(placeholder='Password', type='button')
+
+  div
+    h2 mn-input[disabled]
+    mn-input(placeholder='Username', disabled)
 
   div
     h2 mn-input[type='text']
