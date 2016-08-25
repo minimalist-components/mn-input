@@ -1,0 +1,88 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder {@content}
+  &::-moz-placeholder {@content}
+  &:-ms-input-placeholder {@content}
+}
+
+input.input {
+  border: 0;
+  outline: 0;
+  line-height: 2em;
+  font-size: 1em;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0 .1em .5em;
+  box-shadow: 0 1px 0 map-get($grey, 200);
+  transition: box-shadow .2s ease;
+
+  @include placeholder {
+    color: map-get($grey, 400);
+    transition: transform .2s ease, color .2s ease;
+    transform-origin: left center;
+    transform: translateZ(0);
+
+    display: block !important;
+  }
+
+  &:focus/*, &:not(:placeholder-shown) */ {
+    box-shadow: 0 2px 0 map-get($grey, 900);
+
+    @include placeholder {
+      color: map-get($grey, 900) !important;
+      transform: translate(0, -1.3em) scale(.8) translateZ(0) !important;
+    }
+  }
+}
+
+
+mn-input {
+  position: relative;
+  display: inline-block;
+  margin-top: 2.5em;
+
+  &::shadow {
+    input {
+      border: 0;
+      outline: 0;
+      line-height: 2em;
+      font-size: 1em;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0 .1em .5em;
+      box-shadow: 0 1px 0 map-get($grey, 200);
+      transition: box-shadow .2s ease;
+
+      @include placeholder {
+        color: transparent;
+      }
+
+      &:focus {
+        box-shadow: 0 2px 0 map-get($grey, 900);
+      }
+    }
+
+    label {
+      position: absolute;
+      top: 5px;
+      left: 1px;
+
+      font-size: 1em;
+
+      color: map-get($grey, 400);
+      transition: transform .2s ease, color .2s ease;
+      transform-origin: left center;
+      transform: translateZ(0);
+      pointer-events: none;
+    }
+
+    input:focus + label {
+      color: map-get($grey, 900);
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+      transform: translate(0, -1.3em) scale(.8) translateZ(0);
+    }
+  }
+}
