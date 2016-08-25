@@ -8,17 +8,18 @@
 mn-input {
   position: relative;
   display: inline-block;
-  margin-top: 2.5em;
+  margin: 2.5em .1em 0;
 
   &::shadow {
     input {
+      width: 100%;
       border: 0;
       outline: 0;
       line-height: 2em;
       font-size: 1em;
       box-sizing: border-box;
       padding: 0 .1em;
-      margin: 0 .1em .5em;
+      margin-bottom: .5em;
       box-shadow: 0 1px 0 map-get($grey, 200);
       transition: box-shadow .2s ease;
 
