@@ -7,7 +7,6 @@ function MNInput() {
     'text',
     'password',
   ]
-  // console.log(this.getAttribute('type'));
   let supportedType = types.indexOf(this.getAttribute('type')) >= 0 || this.getAttribute('type') === null;
   if (!supportedType) {
     let error = new Error('Unsupported type - only text and password is supported');
