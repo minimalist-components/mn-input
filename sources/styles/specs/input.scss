@@ -22,6 +22,8 @@ mn-input {
       margin-bottom: .5em;
       box-shadow: 0 1px 0 map-get($grey, 200);
       transition: box-shadow .2s ease;
+      text-overflow: ellipsis;
+
 
       @include placeholder {
         color: transparent;
