@@ -7,19 +7,17 @@ function MNInput() {
     'text',
     'password',
   ]
-  let supportedType = types.indexOf(this.getAttribute('type')) >= 0 || this.getAttribute('type') === null;
-  if (!supportedType) {
-    let error = new Error('Unsupported type - only text and password is supported');
-    throw error;
-    return error;
-  }
   let shadowDom = this.createShadowRoot();
 
   let input = document.createElement('input');
   input.setAttribute('placeholder', this.getAttribute('placeholder') || 'undefined');
   shadowDom.appendChild(input);
 
-  let type = this.getAttribute('type') || 'text';
+  let supportedType = types.indexOf(this.getAttribute('type')) >= 0 || this.getAttribute('type') === null;
+  let type = supportedType
+    ? this.getAttribute('type') || 'text'
+    : 'text';
+
   input.setAttribute('type', type);
 
   let value = this.getAttribute('value') || '';
