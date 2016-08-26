@@ -16,7 +16,7 @@ function MNInput() {
   let shadowDom = this.createShadowRoot();
 
   let input = document.createElement('input');
-  input.setAttribute('placeholder', 'lero');
+  input.setAttribute('placeholder', this.getAttribute('placeholder') || 'undefined');
   shadowDom.appendChild(input);
 
   let type = this.getAttribute('type') || 'text';

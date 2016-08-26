@@ -23,6 +23,7 @@ mn-input {
       box-shadow: 0 1px 0 map-get($grey, 200);
       transition: box-shadow .2s ease;
       text-overflow: ellipsis;
+      user-select: none;
 
 
       @include placeholder {
@@ -48,6 +49,7 @@ mn-input {
       position: absolute;
       top: 5px;
       left: .1em;
+      user-select: none;
 
       font-size: 1em;
 
