@@ -34,7 +34,9 @@ function MNInput() {
   let placeholder = this.getAttribute('placeholder');
   if(placeholder) {
     let label = document.createElement('label');
-    label.textContent = placeholder;
+    label.textContent = disabled
+      ? `${placeholder} disabled`
+      : placeholder;
     shadowDom.appendChild(label);
   }
 }
