@@ -12,7 +12,6 @@ let uglify = require('gulp-uglify');
 gulp.task('scripts', scriptsTask);
 
 function scriptsTask() {
-  let sourceRoot = config.scripts.dest;
   return gulp
     .src(config.scripts.src)
     .pipe(plumber({errorHandler}))
@@ -20,7 +19,7 @@ function scriptsTask() {
     .pipe(babel())
     .pipe(concat('app.js'))
     .pipe(uglify({mangle: false}))
-    .pipe(sourcemaps.write({sourceRoot}))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(config.scripts.dest));
 }
 
