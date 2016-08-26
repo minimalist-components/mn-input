@@ -7,7 +7,7 @@ let sourcemaps = require('gulp-sourcemaps');
 let config = require('./gulp.config.js');
 let plumber = require('gulp-plumber');
 let concat = require('gulp-concat');
-// let uglify = require('gulp-uglify');
+let uglify = require('gulp-uglify');
 
 gulp.task('scripts', scriptsTask);
 
@@ -19,7 +19,7 @@ function scriptsTask() {
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(concat('app.js'))
-    // .pipe(uglify({mangle: false}))
+    .pipe(uglify({mangle: false}))
     .pipe(sourcemaps.write({sourceRoot}))
     .pipe(gulp.dest(config.scripts.dest));
 }
