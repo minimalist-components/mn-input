@@ -8,7 +8,7 @@ module.exports = {
   styles: {
     src: './sources/styles/*.scss',
     watch: './sources/styles/**/*.scss',
-    dest: './public/styles/',
+    dest: './dist/',
     sourcemaps: '/sources/styles',
   },
   scripts: {
@@ -16,12 +16,15 @@ module.exports = {
       './sources/**/*.js',
       '!./sources/**/*.spec.js',
     ],
-    dest: './public/scripts/',
+    dest: './dist/',
   },
   browserSync: require('browser-sync').create(),
   browserSyncOptions: {
     server: {
-      baseDir: './public',
+      baseDir: [
+        './public',
+        './dist',
+      ],
     },
     notify: false,
     middleware: [require('connect-history-api-fallback')()],

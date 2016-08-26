@@ -1,6 +1,6 @@
 html
   meta(name='viewport' content='width=device-width, user-scalable=no')
-  link(rel='stylesheet' href='styles/app.css')
+  link(rel='stylesheet' href='app.css')
   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css')
   link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans')
   style.
@@ -15,6 +15,8 @@ body
     h2 mn-input
     mn-input(placeholder='Username')
     mn-input(placeholder='Password', type='password')
+    mn-input(placeholder='Password', type='password', disabled)
+    mn-input(placeholder='Another input')
 
   div
     h2 mn-input[disabled]
@@ -28,5 +30,5 @@ body
     h2 mn-input[type='password']
     mn-input(placeholder='Password', type='password')
   
-  script(src='scripts/app.js')
+  script(src='app.js')
 
