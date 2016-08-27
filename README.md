@@ -1,7 +1,5 @@
-# Minimalist buttons
+# Minimalist inputs
 
-Inputs with minimalist design.
-
-Just 6kb (at moment, I will work decrement this to just 1kb)
+Just a input component, with with minimalist design.
 
 See the [demo](http://codepen.io/darlanmendonca/pen/akgXQq)
