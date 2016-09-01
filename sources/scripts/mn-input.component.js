@@ -67,21 +67,20 @@ function mnInput() {
   }
 
   function setInputAttribute(attribute) {
-    let hasDefaultValue = attribute.hasOwnProperty('default');
-    let hasAttribute = element.getAttribute(attribute.name);
+    let isDefaultAttribute = attribute.hasOwnProperty('default');
+    let attributeValue = attributeValue;
 
-    if (hasDefaultValue) {
+    if (isDefaultAttribute) {
       let isValidValue = attribute.hasOwnProperty('values')
-        && attribute.values.indexOf(element.getAttribute(attribute.name)) >= 0;
+        && attribute.values.indexOf(attributeValue) >= 0;
 
       let value = isValidValue
-        ? element.getAttribute(attribute.name)
+        ? attributeValue
         : attribute.default;
 
       input.setAttribute(attribute.name, value);
-    } else if (hasAttribute) {
-      let value = element.getAttribute(attribute.name);
-      input.setAttribute(attribute.name, value);
+    } else if (attributeValue) {
+      input.setAttribute(attribute.name, attributeValue);
     }
   }
 }
