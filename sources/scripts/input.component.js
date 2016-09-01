@@ -1,76 +1,87 @@
 let prototype = Object.create(HTMLElement.prototype);
-prototype.createdCallback = MNInput;
+prototype.createdCallback = mnInput;
 document.registerElement('mn-input', {prototype});
 
-function MNInput() {
-  let validTypes = [
-    'text',
-    'password',
-    'email',
+function mnInput() {
+  let element = this;
+
+  let inputAttributes = [
+    {
+      name: 'type',
+      default: 'text',
+      values: [
+        'text',
+        'password',
+        'email',
+      ],
+    },
+    {
+      name: 'placeholder',
+      default: 'undefined',
+    },
+    {
+      name: 'value',
+    },
+    {
+      name: 'name',
+    },
+    {
+      name: 'autocomplete',
+      default: 'off',
+    },
+    {
+      name: 'autofocus',
+    },
+    {
+      name: 'maxlength',
+    },
+    {
+      name: 'pattern',
+    },
+    {
+      name: 'readonly',
+    },
+    {
+      name: 'required',
+    },
+    {
+      name: 'disabled',
+    },
   ];
 
+  // input element
   let input = document.createElement('input');
-  input.setAttribute('placeholder', this.getAttribute('placeholder') || 'undefined');
+  inputAttributes.map(setInputAttribute);
+  element.appendChild(input);
 
-  // type attribute
-  let attributeType = this.getAttribute('type');
-  let isValidType = validTypes.indexOf(attributeType) >= 0;
-  attributeType = isValidType
-    ? attributeType
-    : validTypes[0];
-
-  input.setAttribute('type', attributeType);
-
-  // value attribute
-  let value = this.getAttribute('value') || '';
-  input.setAttribute('value', value);
-
-  // name attribute
-  let name = this.getAttribute('name') || '';
-  input.setAttribute('name', name);
-
-  // autocomplete attribute
-  input.setAttribute('autocomplete', 'off');
-
-  // autofocus attribute
-  if (this.getAttribute('autofocus')) {
-    input.setAttribute('autofocus', 'autofocus');
-  }
-
-  // maxlength attribute
-  if (this.getAttribute('maxlength')) {
-    input.setAttribute('maxlength', this.getAttribute('maxlength'));
-  }
-
-  // pattern attribute
-  if (this.getAttribute('pattern')) {
-    input.setAttribute('pattern', this.getAttribute('pattern'));
-  }
-
-  // pattern attribute
-  if (this.getAttribute('readonly')) {
-    input.setAttribute('readonly', 'readonly');
-  }
-
-  // pattern attribute
-  if (this.getAttribute('required')) {
-    input.setAttribute('required', 'required');
-  }
-
-  // disabled attribute
-  let disabled = this.getAttribute('disabled');
-  if (disabled) {
-    input.setAttribute('disabled', disabled);
-  }
-  this.appendChild(input);
-
-  // placeholder element
-  let placeholder = this.getAttribute('placeholder');
-  if(placeholder) {
+  // label element
+  let placeholder = element.getAttribute('placeholder');
+  if (placeholder) {
     let label = document.createElement('label');
-    label.textContent = disabled
+    label.textContent = element.getAttribute('disabled')
       ? `${placeholder} disabled`
       : placeholder;
-    this.appendChild(label);
+    element.appendChild(label);
+  }
+
+  function setInputAttribute(attribute) {
+    let hasDefaultValue = attribute.hasOwnProperty('default');
+    let hasAttribute = element.getAttribute(attribute.name);
+
+    if (hasDefaultValue) {
+      let isValidValue = attribute.hasOwnProperty('values')
+        && attribute.values.indexOf(element.getAttribute(attribute.name)) >= 0;
+
+      let value = isValidValue
+        ? element.getAttribute(attribute.name)
+        : attribute.default;
+
+      input.setAttribute(attribute.name, value);
+    }
+
+    else if (hasAttribute) {
+      let value = element.getAttribute(attribute.name);
+      input.setAttribute(attribute.name, value);
+    }
   }
 }
