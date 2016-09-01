@@ -44,6 +44,11 @@ function MNInput() {
     input.setAttribute('maxlength', this.getAttribute('maxlength'));
   }
 
+  // pattern attribute
+  if (this.getAttribute('pattern')) {
+    input.setAttribute('pattern', this.getAttribute('pattern'));
+  }
+
   // disabled attribute
   let disabled = this.getAttribute('disabled');
   if (disabled) {
