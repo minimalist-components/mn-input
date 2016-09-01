@@ -31,7 +31,7 @@ mn-input {
         pointer-events: none;
       }
 
-      &:focus {
+      &:focus:not([readonly]) {
         box-shadow: 0 2px 0 map-get($grey, 900);
       }
 
@@ -60,11 +60,11 @@ mn-input {
       pointer-events: none;
     }
 
-    input:focus + label {
+    input:focus:not([readonly]) + label {
       color: map-get($grey, 900);
     }
 
-    input:focus + label,
+    input:focus:not([readonly]) + label,
     input:not(:placeholder-shown) + label {
       transform: translate(0, -1.3em) scale(.8) translateZ(0);
     }

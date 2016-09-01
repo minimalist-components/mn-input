@@ -35,7 +35,7 @@ function MNInput() {
   input.setAttribute('autocomplete', 'off');
 
   // autofocus attribute
-  if (this.getAttribute('autofocus') === 'autofocus') {
+  if (this.getAttribute('autofocus')) {
     input.setAttribute('autofocus', 'autofocus');
   }
 
@@ -47,6 +47,11 @@ function MNInput() {
   // pattern attribute
   if (this.getAttribute('pattern')) {
     input.setAttribute('pattern', this.getAttribute('pattern'));
+  }
+
+  // pattern attribute
+  if (this.getAttribute('readonly')) {
+    input.setAttribute('readonly', 'readonly');
   }
 
   // disabled attribute
