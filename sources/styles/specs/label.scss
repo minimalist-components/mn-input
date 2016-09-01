@@ -14,7 +14,11 @@ mn-input {
     pointer-events: none;
   }
 
-  input:focus:not([readonly]) + label {
+  input:invalid + label {
+    color: map-get($pink, 500);
+  }
+
+  input:focus + label {
     color: map-get($grey, 900);
   }
 
@@ -22,9 +26,8 @@ mn-input {
     color: map-get($grey, 200);
   }
 
-  input:focus:not([readonly]) + label,
+  input:focus + label,
   input:not(:placeholder-shown) + label {
     transform: translate(0, -1.3em) scale(.8) translateZ(0);
   }
-
 }
