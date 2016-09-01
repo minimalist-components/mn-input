@@ -1,3 +1,5 @@
+'use strict';
+
 let prototype = Object.create(HTMLElement.prototype);
 prototype.createdCallback = mnInput;
 document.registerElement('mn-input', {prototype});
@@ -77,9 +79,7 @@ function mnInput() {
         : attribute.default;
 
       input.setAttribute(attribute.name, value);
-    }
-
-    else if (hasAttribute) {
+    } else if (hasAttribute) {
       let value = element.getAttribute(attribute.name);
       input.setAttribute(attribute.name, value);
     }

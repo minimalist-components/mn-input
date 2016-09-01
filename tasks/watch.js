@@ -12,6 +12,7 @@ function watchTask() {
   ]);
 
   gulp.watch(gulpConfig.scripts.src, [
+    'lint',
     'scripts',
     gulpConfig.browserSync.reload,
   ]);

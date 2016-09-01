@@ -18,6 +18,11 @@ module.exports = {
     ],
     dest: './dist/',
   },
+  lintScripts: [
+    './gulpfile.js',
+    './tasks/**/*.js',
+    './sources/**/*.js',
+  ],
   browserSync: require('browser-sync').create(),
   browserSyncOptions: {
     server: {
