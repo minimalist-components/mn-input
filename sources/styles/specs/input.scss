@@ -37,34 +37,6 @@ mn-input {
     &:disabled {
       box-shadow: 0 1px 0 map-get($grey, 50);
       color: map-get($grey, 200);
-
-      & + label {
-        color: map-get($grey, 200);
-      }
     }
-  }
-
-  label {
-    position: absolute;
-    top: 5px;
-    left: .1em;
-    user-select: none;
-
-    font-size: 1em;
-
-    color: map-get($grey, 400);
-    transition: transform .2s ease, color .2s ease;
-    transform-origin: left center;
-    transform: translateZ(0);
-    pointer-events: none;
-  }
-
-  input:focus:not([readonly]) + label {
-    color: map-get($grey, 900);
-  }
-
-  input:focus:not([readonly]) + label,
-  input:not(:placeholder-shown) + label {
-    transform: translate(0, -1.3em) scale(.8) translateZ(0);
   }
 }
