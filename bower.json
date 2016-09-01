@@ -1,9 +1,10 @@
 {
-  "name": "xp-buttons",
+  "name": "mn-input",
+  "version": "1.0.0",
   "description": "",
   "main": [
     "dist/app.css",
-    "dist/app.js",
+    "dist/app.js"
   ],
   "authors": [
     "Darlan Mendonça <darlanmendonca@gmail.com>"
