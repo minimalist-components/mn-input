@@ -68,7 +68,7 @@ function mnInput() {
 
   function setInputAttribute(attribute) {
     let isDefaultAttribute = attribute.hasOwnProperty('default');
-    let attributeValue = attributeValue;
+    let attributeValue = element.getAttribute(attribute.name);
 
     if (isDefaultAttribute) {
       let isValidValue = attribute.hasOwnProperty('values')
