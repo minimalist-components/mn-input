@@ -39,6 +39,11 @@ function MNInput() {
     input.setAttribute('autofocus', 'autofocus');
   }
 
+  // maxlength attribute
+  if (this.getAttribute('maxlength')) {
+    input.setAttribute('maxlength', this.getAttribute('maxlength'));
+  }
+
   // disabled attribute
   let disabled = this.getAttribute('disabled');
   if (disabled) {
