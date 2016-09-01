@@ -3,40 +3,56 @@ prototype.createdCallback = MNInput;
 document.registerElement('mn-input', {prototype});
 
 function MNInput() {
-  let types = [
+  let validTypes = [
     'text',
     'password',
-  ]
-  let shadowDom = this.createShadowRoot();
+    'email',
+  ];
+
+  let dom = this.createShadowRoot();
 
   let input = document.createElement('input');
   input.setAttribute('placeholder', this.getAttribute('placeholder') || 'undefined');
-  shadowDom.appendChild(input);
 
-  let supportedType = types.indexOf(this.getAttribute('type')) >= 0 || this.getAttribute('type') === null;
-  let type = supportedType
-    ? this.getAttribute('type') || 'text'
-    : 'text';
+  // type attribute
+  let attributeType = this.getAttribute('type');
+  let isValidType = validTypes.indexOf(attributeType) >= 0;
+  attributeType = isValidType
+    ? attributeType
+    : validTypes[0];
 
-  input.setAttribute('type', type);
+  input.setAttribute('type', attributeType);
 
+  // value attribute
   let value = this.getAttribute('value') || '';
   input.setAttribute('value', value);
 
+  // name attribute
   let name = this.getAttribute('name') || '';
   input.setAttribute('name', name);
 
+  // autocomplete attribute
+  input.setAttribute('autocomplete', 'off');
+
+  // autofocus attribute
+  if (this.getAttribute('autofocus') === 'autofocus') {
+    input.setAttribute('autofocus', 'autofocus');
+  }
+
+  // disabled attribute
   let disabled = this.getAttribute('disabled');
   if (disabled) {
     input.setAttribute('disabled', disabled);
   }
+  dom.appendChild(input);
 
+  // placeholder element
   let placeholder = this.getAttribute('placeholder');
   if(placeholder) {
     let label = document.createElement('label');
     label.textContent = disabled
       ? `${placeholder} disabled`
       : placeholder;
-    shadowDom.appendChild(label);
+    dom.appendChild(label);
   }
 }
