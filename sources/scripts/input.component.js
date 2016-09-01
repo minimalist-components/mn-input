@@ -9,8 +9,6 @@ function MNInput() {
     'email',
   ];
 
-  let dom = this.createShadowRoot();
-
   let input = document.createElement('input');
   input.setAttribute('placeholder', this.getAttribute('placeholder') || 'undefined');
 
@@ -54,12 +52,17 @@ function MNInput() {
     input.setAttribute('readonly', 'readonly');
   }
 
+  // pattern attribute
+  if (this.getAttribute('required')) {
+    input.setAttribute('required', 'required');
+  }
+
   // disabled attribute
   let disabled = this.getAttribute('disabled');
   if (disabled) {
     input.setAttribute('disabled', disabled);
   }
-  dom.appendChild(input);
+  this.appendChild(input);
 
   // placeholder element
   let placeholder = this.getAttribute('placeholder');
@@ -68,6 +71,6 @@ function MNInput() {
     label.textContent = disabled
       ? `${placeholder} disabled`
       : placeholder;
-    dom.appendChild(label);
+    this.appendChild(label);
   }
 }
