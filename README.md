@@ -41,7 +41,7 @@ Example:
 
 The following attributes from inputs are supported in this component
 
-- type
+- [type]((http://www.w3schools.com/tags/att_input_placeholder.asp)) - only text, password and email
 - [placeholder](http://www.w3schools.com/tags/att_input_placeholder.asp)
 - [value](http://www.w3schools.com/tags/att_input_value.asp)
 - [name](http://www.w3schools.com/tags/att_input_name.asp)
