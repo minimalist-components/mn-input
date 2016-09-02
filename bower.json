@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": [
-    "dist/app.css",
-    "dist/app.js"
+    "dist/mn-input.css",
+    "dist/mn-input.js"
   ],
   "authors": [
     "Darlan Mendonça <darlanmendonca@gmail.com>"
