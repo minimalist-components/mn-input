@@ -1,7 +1,7 @@
 {
   "name": "mn-input",
   "version": "1.0.0",
-  "description": "",
+  "description": "A input component (type text, password or email), with minimalist design",
   "main": [
     "dist/mn-input.css",
     "dist/mn-input.js"
