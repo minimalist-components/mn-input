@@ -1,4 +1,4 @@
-git{
+{
   "name": "mn-input",
   "version": "0.0.1",
   "description": "A input component (type text, password or email), with minimalist design",
