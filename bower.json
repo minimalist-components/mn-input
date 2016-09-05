@@ -1,10 +1,11 @@
-{
+git{
   "name": "mn-input",
   "version": "0.0.1",
   "description": "A input component (type text, password or email), with minimalist design",
   "main": [
     "dist/mn-input.css",
-    "dist/mn-input.js"
+    "dist/mn-input.js",
+    "sources/styles/mn-input.scss"
   ],
   "authors": [
     "Darlan Mendonça <darlanmendonca@gmail.com>"
