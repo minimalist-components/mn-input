@@ -2,7 +2,7 @@
 
 A input component (type text, password or email), with minimalist design.
 
-See the [demo](http://codepen.io/darlanmendonca/pen/akgXQq)
+See the [demo](http://codepen.io/darlanmendonca/full/akgXQq)
 
 ### Install
 
