@@ -4,7 +4,7 @@ A input component (type text, password or email), with minimalist design.
 
 See the [demo](http://codepen.io/darlanmendonca/full/akgXQq)
 
-![preview demo](https://raw.githubusercontent.com/minimalist-components/mn-input/master/sources/example/mn-input.gif)
+[![preview demo](https://raw.githubusercontent.com/minimalist-components/mn-input/master/sources/example/mn-input.gif)](http://codepen.io/darlanmendonca/full/akgXQq)
 
 ### Install
 
