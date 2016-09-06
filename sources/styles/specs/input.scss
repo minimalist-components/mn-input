@@ -19,7 +19,7 @@ mn-input {
     box-sizing: border-box;
     padding: 0 .1em;
     margin-bottom: .5em;
-    box-shadow: 0 1px 0 map-get($mn-primary-color, 200);
+    box-shadow: 0 1px 0 map-get($mn-black-color, 200);
     transition: box-shadow .2s ease;
     text-overflow: ellipsis;
     user-select: none;
@@ -39,12 +39,12 @@ mn-input {
     }
 
     &:focus {
-      box-shadow: 0 2px 0 map-get($mn-accent-color, 900);
+      box-shadow: 0 2px 0 map-get($mn-primary-color, 900);
     }
 
 
     &:disabled {
-      box-shadow: 0 1px 0 map-get($mn-primary-color, 50);
+      box-shadow: 0 1px 0 map-get($mn-black-color, 50);
       color: map-get($mn-primary-color, 200);
     }
   }

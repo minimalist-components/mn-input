@@ -1,4 +1,4 @@
-$mn-primary-color: (
+$mn-black-color: (
   50 : rgba(0, 0, 0, .05),
   100: rgba(0, 0, 0, .1),
   200: rgba(0, 0, 0, .2),
@@ -11,7 +11,9 @@ $mn-primary-color: (
   900: rgba(0, 0, 0, .9),
 ) !default;
 
-$mn-accent-color: $mn-primary-color !default;
+
+$mn-primary-color: $mn-black-color !default;
+$mn-accent-color: $mn-black-color !default;
 
 // material design palette: pink
 $mn-warning-color: (
