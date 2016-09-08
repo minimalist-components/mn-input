@@ -51,4 +51,5 @@ The following attributes from inputs are supported in this component
 - [maxlength](http://www.w3schools.com/tags/att_input_maxlength.asp)
 - [pattern](http://www.w3schools.com/tags/att_input_pattern.asp)
 - [readonly](http://www.w3schools.com/tags/att_input_readonly.asp)
+- [required](http://www.w3schools.com/tags/att_input_required.asp)
 - [disabled](http://www.w3schools.com/tags/att_input_disabled.asp)
