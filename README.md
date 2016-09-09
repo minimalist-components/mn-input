@@ -53,3 +53,7 @@ The following attributes from inputs are supported in this component
 - [readonly](http://www.w3schools.com/tags/att_input_readonly.asp)
 - [required](http://www.w3schools.com/tags/att_input_required.asp)
 - [disabled](http://www.w3schools.com/tags/att_input_disabled.asp)
+
+### Tests
+
+Thanks to the team [BrowserStack](https://www.browserstack.com/), we will tests using them. They have great tools for unit, and e2e tests.
