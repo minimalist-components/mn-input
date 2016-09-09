@@ -23,6 +23,7 @@ mn-input {
     transition: box-shadow .2s ease;
     text-overflow: ellipsis;
     user-select: none;
+    background-color: transparent;
 
 
     @include placeholder {
