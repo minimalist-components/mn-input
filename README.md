@@ -56,4 +56,4 @@ The following attributes from inputs are supported in this component
 
 ### Tests
 
-Thanks to the team [BrowserStack](https://www.browserstack.com/), we will tests using them. They have great tools for unit, and e2e tests.
+Thanks to the team [BrowserStack](https://www.browserstack.com/), we will test using them. They have great tools for unit, and e2e tests.
