@@ -12,7 +12,6 @@ let path = require('path');
 let browserSync = config.browserSync;
 let plumber = require('gulp-plumber');
 
-
 let dependencies = bower
   .relative(path.join(__dirname, '..'))
   .ext('scss')
