@@ -4,6 +4,10 @@ mn-input {
     top: 5px;
     left: .1em;
     user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 
     font-size: 1em;
 
