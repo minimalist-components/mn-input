@@ -1,11 +1,10 @@
 {
   "name": "mn-input",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "A input component (type text, password or email), with minimalist design",
   "main": [
     "dist/mn-input.css",
-    "dist/mn-input.js",
-    "sources/styles/mn-input.scss"
+    "dist/mn-input.js"
   ],
   "authors": [
     "Darlan Mendonça <darlanmendonca@gmail.com>"
