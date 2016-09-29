@@ -1,0 +1,6 @@
+mn-input small.message {
+  position: absolute;
+  left: 0;
+  bottom: -1em;
+  color: map-get($mn-warning-color, 500);
+}

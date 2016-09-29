@@ -1,24 +1,19 @@
-form.submitted,
-form.ng-submitted {
-  mn-input {
-    input:invalid {
-      box-shadow: 0 2px 0 map-get($mn-warning-color, 400);
-    }
+form.submitted mn-input {
+  &:invalid {
+    box-shadow: 0 2px 0 map-get($mn-warning-color, 400);
+  }
 
-    input:invalid + label {
-      color: map-get($mn-warning-color, 500);
-    }
+  &:invalid + label {
+    color: map-get($mn-warning-color, 500);
   }
 }
 
-mn-input {
-  input.touched, input.ng-touched {
-    &:invalid {
-      box-shadow: 0 2px 0 map-get($mn-warning-color, 400);
-    }
+mn-input input.touched {
+  &:invalid {
+    box-shadow: 0 2px 0 map-get($mn-warning-color, 400);
+  }
 
-    &:invalid + label {
-      color: map-get($mn-warning-color, 500);
-    }
+  &:invalid + label {
+    color: map-get($mn-warning-color, 500);
   }
 }
