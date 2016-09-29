@@ -51,11 +51,6 @@ function mnInput() {
     },
   ];
 
-  // input element
-  let input = document.createElement('input');
-  inputAttributes.map(setInputAttribute);
-  element.appendChild(input);
-
   // label element
   let placeholder = element.getAttribute('placeholder');
   if (placeholder) {
@@ -63,8 +58,13 @@ function mnInput() {
     label.textContent = element.getAttribute('disabled')
       ? `${placeholder} disabled`
       : placeholder;
-    element.appendChild(label);
+    element.insertBefore(label, element.firstChild);
   }
+
+  // input element
+  let input = document.createElement('input');
+  inputAttributes.map(setInputAttribute);
+  element.insertBefore(input, element.firstChild);
 
   function setInputAttribute(attribute) {
     let isDefaultAttribute = attribute.hasOwnProperty('default');
