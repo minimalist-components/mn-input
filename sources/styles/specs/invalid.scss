@@ -1,12 +1,12 @@
 $tickness: 1px;
-$hover-tickness: 2px;
+$focus-tickness: 2px;
 $border-color: map-get($mn-warning-color, 400);
 $label-color: map-get($mn-warning-color, 500);
 
 form.submitted mn-input {
   &:invalid {
     box-shadow: 0 $tickness 0 $border-color;
-    &:hover {box-shadow: 0 $hover-tickness 0 $border-color}
+    &:focus {box-shadow: 0 $focus-tickness 0 $border-color}
   }
 
   &:invalid + label {
@@ -17,7 +17,7 @@ form.submitted mn-input {
 mn-input input.touched {
   &:invalid {
     box-shadow: 0 $tickness 0 $border-color;
-    &:hover {box-shadow: 0 $hover-tickness 0 $border-color}
+    &:focus {box-shadow: 0 $focus-tickness 0 $border-color}
   }
 
   &:invalid + label {

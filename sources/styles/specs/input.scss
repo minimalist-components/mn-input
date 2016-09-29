@@ -24,7 +24,6 @@ mn-input {
     text-overflow: ellipsis;
     user-select: none;
     background-color: transparent;
-    transform: translateZ(0);
 
 
     @include placeholder {
