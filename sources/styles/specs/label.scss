@@ -31,10 +31,3 @@ mn-input {
     transform: translate(0, -1.3em) scale(.8) translateZ(0);
   }
 }
-
-form.submitted,
-form.ng-submitted {
-  mn-input input:invalid + label {
-    color: map-get($mn-warning-color, 500);
-  }
-}
