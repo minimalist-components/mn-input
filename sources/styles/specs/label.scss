@@ -18,10 +18,6 @@ mn-input {
     pointer-events: none;
   }
 
-  input:invalid + label {
-    color: map-get($mn-warning-color, 500);
-  }
-
   input:focus + label {
     color: map-get($mn-primary-color, 900);
   }
@@ -33,5 +29,12 @@ mn-input {
   input:focus + label,
   input:not(:placeholder-shown) + label {
     transform: translate(0, -1.3em) scale(.8) translateZ(0);
+  }
+}
+
+form.submitted,
+form.ng-submitted {
+  mn-input input:invalid + label {
+    color: map-get($mn-warning-color, 500);
   }
 }

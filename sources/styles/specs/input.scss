@@ -35,10 +35,6 @@ mn-input {
       pointer-events: none;
     }
 
-    &:invalid {
-      box-shadow: 0 2px 0 map-get($mn-warning-color, 400);
-    }
-
     &:focus {
       box-shadow: 0 2px 0 map-get($mn-primary-color, 900);
     }
@@ -48,5 +44,12 @@ mn-input {
       box-shadow: 0 1px 0 map-get($mn-black-color, 50);
       color: map-get($mn-primary-color, 200);
     }
+  }
+}
+
+form.submitted,
+form.ng-submitted {
+  mn-input input:invalid {
+    box-shadow: 0 2px 0 map-get($mn-warning-color, 400);
   }
 }
