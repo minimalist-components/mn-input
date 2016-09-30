@@ -64,6 +64,9 @@ class MnInput extends HTMLElement {
       {
         name: 'disabled',
       },
+      {
+        'name': 'autocapitalize',
+      },
     ];
 
     let input = document.createElement('input');
@@ -97,7 +100,10 @@ class MnInput extends HTMLElement {
 
     function setAttribute(attribute) {
       let attributeSpec = attributeSpecs.filter(spec => spec.name === attribute.name)[0];
-      let isDefaultAttribute = attributeSpec && attributeSpec.hasOwnProperty('default');
+      if (!attributeSpec) {
+        return false;
+      }
+      let isDefaultAttribute = attributeSpec.hasOwnProperty('default');
       let attributeValue = attribute.value;
 
       if (isDefaultAttribute) {

@@ -53,6 +53,7 @@ The following attributes from inputs are supported in this component
 - [readonly](http://www.w3schools.com/tags/att_input_readonly.asp)
 - [required](http://www.w3schools.com/tags/att_input_required.asp)
 - [disabled](http://www.w3schools.com/tags/att_input_disabled.asp)
+- [autocapitalize](https://developers.google.com/web/updates/2015/04/autocapitalize)
 
 ### Tests
 
