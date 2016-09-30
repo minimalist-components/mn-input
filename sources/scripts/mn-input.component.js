@@ -67,12 +67,16 @@ class MnInput extends HTMLElement {
     ];
 
     let input = document.createElement('input');
-    let defaultAttibutes = attributeSpecs.filter(attr => attr.hasOwnProperty('default'));
 
     let attributes = Array
       .from(this.attributes)
-      .map(getNameAndValue)
-      .concat(defaultAttibutes);
+      .map(getNameAndValue);
+
+    let defaultAttibutes = attributeSpecs
+      .filter(defaults)
+      .filter(notImplemented);
+
+    attributes = attributes.concat(defaultAttibutes);
 
     attributes.forEach(setAttribute);
     this.insertBefore(input, this.firstChild);
@@ -81,6 +85,14 @@ class MnInput extends HTMLElement {
       let name = attr.name;
       let value = attr.value;
       return {name, value};
+    }
+
+    function defaults(attribute) {
+      return attribute.hasOwnProperty('default');
+    }
+
+    function notImplemented(defaultAttr) {
+      return !attributes.some(attribute => attribute.name === defaultAttr.name);
     }
 
     function setAttribute(attribute) {
