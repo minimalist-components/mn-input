@@ -22,7 +22,7 @@ class MnInput extends HTMLElement {
   }
 
   setInput() {
-    let validAttributes = [
+    let attributeSpecs = [
       {
         name: 'type',
         default: 'text',
@@ -67,9 +67,12 @@ class MnInput extends HTMLElement {
     ];
 
     let input = document.createElement('input');
+    let defaultAttibutes = attributeSpecs.filter(attr => attr.hasOwnProperty('default'));
+
     let attributes = Array
       .from(this.attributes)
-      .map(getNameAndValue);
+      .map(getNameAndValue)
+      .concat(defaultAttibutes);
 
     attributes.forEach(setAttribute);
     this.insertBefore(input, this.firstChild);
@@ -81,7 +84,7 @@ class MnInput extends HTMLElement {
     }
 
     function setAttribute(attribute) {
-      let attributeSpec = validAttributes.filter(spec => spec.name === attribute.name)[0];
+      let attributeSpec = attributeSpecs.filter(spec => spec.name === attribute.name)[0];
       let isDefaultAttribute = attributeSpec && attributeSpec.hasOwnProperty('default');
       let attributeValue = attribute.value;
 
