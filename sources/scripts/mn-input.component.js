@@ -82,7 +82,7 @@ class MnInput extends HTMLElement {
 
     function setAttribute(attribute) {
       let attributeSpec = validAttributes.filter(spec => spec.name === attribute.name)[0];
-      let isDefaultAttribute = attributeSpec.hasOwnProperty('default');
+      let isDefaultAttribute = attributeSpec && attributeSpec.hasOwnProperty('default');
       let attributeValue = attribute.value;
 
       if (isDefaultAttribute) {
