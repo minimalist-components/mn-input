@@ -22,7 +22,6 @@ mn-input {
     box-shadow: 0 1px 0 map-get($mn-black-color, 200);
     transition: box-shadow .2s ease;
     text-overflow: ellipsis;
-    user-select: none;
     background-color: transparent;
 
 
