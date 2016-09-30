@@ -7,13 +7,13 @@ html
     body {
       font-family: 'Open Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
-    } 
+    }
 body
   h1(title='lero') Minimalist inputs
 
   form
     h2 mn-input
-    mn-input(placeholder='Username', required)
+    mn-input(placeholder='Username', required, value='teste')
     mn-input(placeholder='Password', type='password')
     mn-input(placeholder='Input Password', type='password', disabled)
     mn-input(placeholder='Email', type='email')
@@ -34,5 +34,6 @@ body
     h2 mn-input[type='email']
     mn-input(placeholder='Email', type='email')
   
+  script(src='scripts/vendor.js')
   script(src='mn-input.js')
 

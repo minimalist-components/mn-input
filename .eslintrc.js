@@ -9,6 +9,9 @@ module.exports = {
     browser: true,
     es6: true
   },
+  globals: {
+    customElements: true,
+  },
   rules: {
     semi: [required, 'always'],
     curly: [required, 'all'],

@@ -1,86 +1,94 @@
 'use strict';
 
-let prototype = Object.create(HTMLElement.prototype);
-prototype.createdCallback = mnInput;
-document.registerElement('mn-input', {prototype});
-
-function mnInput() {
-  let element = this;
-
-  let inputAttributes = [
-    {
-      name: 'type',
-      default: 'text',
-      values: [
-        'text',
-        'password',
-        'email',
-      ],
-    },
-    {
-      name: 'placeholder',
-      default: 'undefined',
-    },
-    {
-      name: 'value',
-    },
-    {
-      name: 'name',
-    },
-    {
-      name: 'autocomplete',
-      default: 'off',
-    },
-    {
-      name: 'autofocus',
-    },
-    {
-      name: 'maxlength',
-    },
-    {
-      name: 'pattern',
-    },
-    {
-      name: 'readonly',
-    },
-    {
-      name: 'required',
-    },
-    {
-      name: 'disabled',
-    },
-  ];
-
-  // label element
-  let placeholder = element.getAttribute('placeholder');
-  if (placeholder) {
-    let label = document.createElement('label');
-    label.textContent = element.getAttribute('disabled')
-      ? `${placeholder} disabled`
-      : placeholder;
-    element.insertBefore(label, element.firstChild);
+class MnInput extends HTMLElement {
+  constructor(self) {
+    self = super(self);
+    this.setPlaceholder();
+    this.setInput();
+    return self;
   }
 
-  // input element
-  let input = document.createElement('input');
-  inputAttributes.map(setInputAttribute);
-  element.insertBefore(input, element.firstChild);
+  setPlaceholder() {
+    let placeholder = this.getAttribute('placeholder');
 
-  function setInputAttribute(attribute) {
-    let isDefaultAttribute = attribute.hasOwnProperty('default');
-    let attributeValue = element.getAttribute(attribute.name);
+    if (placeholder) {
+      let label = document.createElement('label');
+      label.textContent = this.getAttribute('disabled')
+        ? `${placeholder} disabled`
+        : placeholder;
 
-    if (isDefaultAttribute) {
-      let isValidValue = attribute.hasOwnProperty('values')
-        && attribute.values.indexOf(attributeValue) >= 0;
+      this.insertBefore(label, this.firstChild);
+    }
+  }
 
-      let value = isValidValue
-        ? attributeValue
-        : attribute.default;
+  setInput() {
+    let attributes = [
+      {
+        name: 'type',
+        default: 'text',
+        values: [
+          'text',
+          'password',
+          'email',
+        ],
+      },
+      {
+        name: 'placeholder',
+        default: 'undefined',
+      },
+      {
+        name: 'value',
+      },
+      {
+        name: 'name',
+      },
+      {
+        name: 'autocomplete',
+        default: 'off',
+      },
+      {
+        name: 'autofocus',
+      },
+      {
+        name: 'maxlength',
+      },
+      {
+        name: 'pattern',
+      },
+      {
+        name: 'readonly',
+      },
+      {
+        name: 'required',
+      },
+      {
+        name: 'disabled',
+      },
+    ];
 
-      input.setAttribute(attribute.name, value);
-    } else if (attributeValue) {
-      input.setAttribute(attribute.name, attributeValue);
+    let input = document.createElement('input');
+    let component = this;
+    attributes.map(setInputAttribute);
+    this.insertBefore(input, this.firstChild);
+
+    function setInputAttribute(attribute) {
+      let isDefaultAttribute = attribute.hasOwnProperty('default');
+      let attributeValue = component.getAttribute(attribute.name);
+
+      if (isDefaultAttribute) {
+        let isValidValue = attribute.hasOwnProperty('values')
+          && attribute.values.indexOf(attributeValue) >= 0;
+
+        let value = isValidValue
+          ? attributeValue
+          : attribute.default;
+
+        input.setAttribute(attribute.name, value);
+      } else if (attributeValue) {
+        input.setAttribute(attribute.name, attributeValue);
+      }
     }
   }
 }
+
+customElements.define('mn-input', MnInput);
