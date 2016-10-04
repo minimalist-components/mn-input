@@ -1,5 +1,3 @@
-'use strict';
-
 class MnInput extends HTMLElement {
   constructor(self) {
     self = super(self);

@@ -1,4 +1,4 @@
-'use strict';
+import browserSync from 'browser-sync';
 
 module.exports = {
   templates: {
@@ -23,7 +23,7 @@ module.exports = {
     './tasks/**/*.js',
     './sources/**/*.js',
   ],
-  browserSync: require('browser-sync').create(),
+  browserSync: browserSync.create(),
   browserSyncOptions: {
     server: {
       baseDir: [
@@ -32,7 +32,6 @@ module.exports = {
       ],
     },
     notify: false,
-    middleware: [require('connect-history-api-fallback')()],
     reloadDelay: 100,
     open: false,
   },

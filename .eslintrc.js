@@ -4,10 +4,13 @@ let optional = 1;
 let required = 2;
 
 module.exports = {
+  parserOptions: {
+    sourceType: 'module',
+  },
   env: {
-    node: true,
     browser: true,
-    es6: true
+    node: true,
+    es6: true,
   },
   globals: {
     customElements: true,
