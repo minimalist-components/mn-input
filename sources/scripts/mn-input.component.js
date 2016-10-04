@@ -10,12 +10,17 @@ class MnInput extends HTMLElement {
 
   setPlaceholder() {
     let placeholder = this.getAttribute('placeholder');
+    let id = this.getAttribute('id');
 
     if (placeholder) {
       let label = document.createElement('label');
       label.textContent = this.getAttribute('disabled')
         ? `${placeholder} disabled`
         : placeholder;
+
+      if (id) {
+        label.setAttribute('for', id);
+      }
 
       this.insertBefore(label, this.firstChild);
     }
@@ -65,7 +70,11 @@ class MnInput extends HTMLElement {
         name: 'disabled',
       },
       {
-        'name': 'autocapitalize',
+        name: 'autocapitalize',
+      },
+      {
+        name: 'id',
+        remove: true,
       },
     ];
 
@@ -82,6 +91,13 @@ class MnInput extends HTMLElement {
     attributes = attributes.concat(defaultAttibutes);
 
     attributes.forEach(setAttribute);
+
+    attributeSpecs
+      .filter(attr => attr.remove)
+      .forEach(attr => {
+        this.removeAttribute(attr.name);
+      });
+
     this.insertBefore(input, this.firstChild);
 
     function getNameAndValue(attr) {
