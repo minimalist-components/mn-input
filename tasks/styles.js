@@ -7,7 +7,6 @@ import inject from 'gulp-inject';
 import bowerFiles from 'bower-files';
 import path from 'path';
 import plumber from 'gulp-plumber';
-import config from './config.js';
 import gutil from 'gulp-util';
 import {browserSync, styles} from './config.js';
 

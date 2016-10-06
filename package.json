@@ -1,7 +1,7 @@
 {
   "name": "mn-input",
   "private": true,
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
