@@ -11,29 +11,39 @@ html
 body
   h1(title='lero') Minimalist inputs
 
-  form
+  form(novalidate)
     h2 mn-input
-    mn-input(placeholder='Username', required, autocapitalize='off', id='test')
-  //-   mn-input(placeholder='Password', type='password')
-  //-   mn-input(placeholder='Input Password', type='password', disabled)
-  //-   mn-input(placeholder='Email', type='email')
+    mn-input(placeholder='Username', required, autocapitalize='off')
+    mn-input(placeholder='Password', type='password')
+    mn-input(placeholder='Input Password', type='password', disabled)
+    mn-input(placeholder='Email', type='email')
 
-  //- div
-  //-   h2 mn-input[disabled]
-  //-   mn-input(placeholder='Input', disabled)
+  div
+    h2 mn-input[disabled]
+    mn-input(placeholder='Input', disabled)
 
-  //- div
-  //-   h2 mn-input[type='text']
-  //-   mn-input(placeholder='Username')
+  div
+    h2 mn-input[type='text']
+    mn-input(placeholder='Username')
 
-  //- div
-  //-   h2 mn-input[type='password']
-  //-   mn-input(placeholder='Password', type='password')
+  div
+    h2 mn-input[type='password']
+    mn-input(placeholder='Password', type='password')
 
-  //- div
-  //-   h2 mn-input[type='email']
-  //-   mn-input(placeholder='Email', type='email')
+  div
+    h2 mn-input[type='email']
+    mn-input(placeholder='Email', type='email')
   
   script(src='scripts/vendor.js')
   script(src='mn-input.js')
+  script.
+    'use strict';
+
+    let form = document.querySelector('form');
+    form.addEventListener('submit', validate);
+
+    function validate(event) {
+      event.preventDefault();
+      console.log('try validate');
+    }
 

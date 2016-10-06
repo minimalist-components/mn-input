@@ -4,12 +4,12 @@ $border-color: map-get($mn-warning-color, 400);
 $label-color: map-get($mn-warning-color, 500);
 
 form.submitted mn-input {
-  &:invalid {
+  input:invalid {
     box-shadow: 0 $tickness 0 $border-color;
     &:focus {box-shadow: 0 $focus-tickness 0 $border-color}
   }
 
-  &:invalid + label {
+  input:invalid + label {
     color: $label-color;
   }
 }
