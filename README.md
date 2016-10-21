@@ -38,7 +38,13 @@ By default, the type is text, but you can use:
 Example:
 
 ```html
+<!-- HTML -->
 <mn-input type="email" placeholder="Email"></mn-input>
+```
+
+```pug
+//- PUG/JADE
+mn-input(type='email' placeholder='email')
 ```
 
 The following attributes from inputs are supported in this component
