@@ -18,6 +18,7 @@ Or just download the main files ```dist/mn-input.css, dist/mn-input.js``` in you
 
 ```html
 <link rel="stylesheet" href="path/to/dist/mn-input.css">
+<script src="path/to/dist/vendor.js.js"></script>
 <script src="path/to/dist/mn-input.js"></script>
 ```
 
