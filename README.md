@@ -1,4 +1,6 @@
-# Minimalist input
+[![Bower version](https://badge.fury.io/bo/mn-input.svg)](https://badge.fury.io/bo/mn-input)
+
+# mn-input
 
 A input component (type text, password or email), with minimalist design.
 
