@@ -1,3 +1,8 @@
+// https://github.com/sogko/gulp-recipes/blob/master/browserify-separating-app-and-vendor-bundles/gulpfile.js
+
+let customElements = require('document-register-element');
+console.log(customElements.define);
+
 class MnInput extends HTMLElement {
   constructor(self) {
     self = super(self);

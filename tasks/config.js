@@ -13,8 +13,7 @@ module.exports = {
   },
   scripts: {
     src: [
-      './sources/**/*.js',
-      '!./sources/**/*.spec.js',
+      './sources/scripts/mn-input.class.js',
     ],
     dest: './dist/',
   },

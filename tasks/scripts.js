@@ -1,26 +1,35 @@
 import gulp from 'gulp';
+import browserify from 'browserify';
 import gutil from 'gulp-util';
 import babel from 'gulp-babel';
-import sourcemaps from 'gulp-sourcemaps';
 import plumber from 'gulp-plumber';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
-import rename from 'gulp-rename';
 import {scripts} from './config.js';
+import bowerFiles from 'bower-files';
+import {dependencies as bowerDependencies} from '../bower.json';
+import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
+
+const b = browserify(scripts.src, {debug: true});
+const dependencies = bowerFiles().ext('js').files;
 
 gulp.task('scripts', scriptsTask);
 
 function scriptsTask() {
-  return gulp
-    .src(scripts.src)
-    .pipe(plumber({errorHandler}))
-    .pipe(sourcemaps.init())
+  dependencies.forEach(ignoreExternal);
+  return b
+    .bundle()
+    .pipe(source('mn-input.js'))
+    .pipe(buffer())
     .pipe(babel())
-    .pipe(concat('app.js'))
     .pipe(uglify({mangle: false}))
-    .pipe(rename('mn-input.js'))
-    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(scripts.dest));
+}
+
+function ignoreExternal(file) {
+  const name = file.match(/bower_components\/([^\/]+)\//)[1];
+  b.external(name);
 }
 
 function errorHandler(err) {
