@@ -1,26 +1,26 @@
 class MnInput extends HTMLElement {
   constructor(self) {
-    self = super(self);
-    this.setPlaceholder();
-    this.setInput();
-    return self;
+    self = super(self)
+    this.setPlaceholder()
+    this.setInput()
+    return self
   }
 
   setPlaceholder() {
-    let placeholder = this.getAttribute('placeholder');
-    let id = this.getAttribute('id');
+    let placeholder = this.getAttribute('placeholder')
+    let id = this.getAttribute('id')
 
     if (placeholder) {
-      let label = document.createElement('label');
+      let label = document.createElement('label')
       label.textContent = this.getAttribute('disabled')
         ? `${placeholder} disabled`
-        : placeholder;
+        : placeholder
 
       if (id) {
-        label.setAttribute('for', id);
+        label.setAttribute('for', id)
       }
 
-      this.insertBefore(label, this.firstChild);
+      this.insertBefore(label, this.firstChild)
     }
   }
 
@@ -74,66 +74,66 @@ class MnInput extends HTMLElement {
         name: 'id',
         remove: true,
       },
-    ];
+    ]
 
-    let input = document.createElement('input');
+    let input = document.createElement('input')
 
     let attributes = Array
       .from(this.attributes)
-      .map(getNameAndValue);
+      .map(getNameAndValue)
 
     let defaultAttibutes = attributeSpecs
       .filter(defaults)
-      .filter(notImplemented);
+      .filter(notImplemented)
 
-    attributes = attributes.concat(defaultAttibutes);
+    attributes = attributes.concat(defaultAttibutes)
 
-    attributes.forEach(setAttribute);
+    attributes.forEach(setAttribute)
 
     attributeSpecs
       .filter(attr => attr.remove)
       .forEach(attr => {
-        this.removeAttribute(attr.name);
-      });
+        this.removeAttribute(attr.name)
+      })
 
-    this.insertBefore(input, this.firstChild);
+    this.insertBefore(input, this.firstChild)
 
     function getNameAndValue(attr) {
-      let name = attr.name;
-      let value = attr.value;
-      return {name, value};
+      let name = attr.name
+      let value = attr.value
+      return {name, value}
     }
 
     function defaults(attribute) {
-      return attribute.hasOwnProperty('default');
+      return attribute.hasOwnProperty('default')
     }
 
     function notImplemented(defaultAttr) {
-      return !attributes.some(attribute => attribute.name === defaultAttr.name);
+      return !attributes.some(attribute => attribute.name === defaultAttr.name)
     }
 
     function setAttribute(attribute) {
-      let attributeSpec = attributeSpecs.filter(spec => spec.name === attribute.name)[0];
+      let attributeSpec = attributeSpecs.filter(spec => spec.name === attribute.name)[0]
       if (!attributeSpec) {
-        return false;
+        return false
       }
-      let isDefaultAttribute = attributeSpec.hasOwnProperty('default');
-      let attributeValue = attribute.value;
+      let isDefaultAttribute = attributeSpec.hasOwnProperty('default')
+      let attributeValue = attribute.value
 
       if (isDefaultAttribute) {
         let isValidValue = attributeSpec.hasOwnProperty('values')
-          && attributeSpec.values.indexOf(attributeValue) >= 0;
+          && attributeSpec.values.indexOf(attributeValue) >= 0
 
         let value = isValidValue
           ? attributeValue
-          : attributeSpec.default;
+          : attributeSpec.default
 
-        input.setAttribute(attribute.name, value);
+        input.setAttribute(attribute.name, value)
       } else if (attributeValue) {
-        input.setAttribute(attribute.name, attributeValue);
+        input.setAttribute(attribute.name, attributeValue)
       }
     }
   }
 }
 
-customElements.define('mn-input', MnInput);
+customElements.define('mn-input', MnInput)

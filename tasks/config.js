@@ -1,4 +1,4 @@
-import browserSync from 'browser-sync';
+import browserSync from 'browser-sync'
 
 module.exports = {
   templates: {
@@ -24,6 +24,7 @@ module.exports = {
     './gulpfile.js',
     './tasks/**/*.js',
     './sources/**/*.js',
+    '!./sources/**/*.spec.js',
   ],
   browserSync: browserSync.create(),
   browserSyncOptions: {
@@ -37,4 +38,4 @@ module.exports = {
     reloadDelay: 100,
     open: false,
   },
-};
+}
