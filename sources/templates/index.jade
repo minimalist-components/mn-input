@@ -17,6 +17,7 @@ body
     mn-input(placeholder='Password', type='password')
     mn-input(placeholder='Input Password', type='password', disabled)
     mn-input(placeholder='Email', type='email')
+    //- button(type='submit') Send
 
   div
     h2 mn-input[disabled]
@@ -39,10 +40,11 @@ body
   script.
     'use strict';
 
-    let form = document.querySelector('form');
-    form.addEventListener('submit', validate);
+    let form = document.querySelector('form')
+    form.addEventListener('submit', validate)
 
     function validate(event) {
-      event.preventDefault();
+      form.classList.add('submitted')
+      event.preventDefault()
     }
 

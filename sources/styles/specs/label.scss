@@ -18,9 +18,9 @@ mn-input {
     pointer-events: none;
   }
 
-  input:focus + label {
-    color: map-get($mn-primary-color, 900);
-  }
+  // input:focus + label {
+  //   color: map-get($mn-primary-color, 900);
+  // }
 
   input:disabled + label {
     color: map-get($mn-black-color, 200);
