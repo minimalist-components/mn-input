@@ -12,19 +12,11 @@ See the [demo](http://codepen.io/darlanmendonca/full/akgXQq)
 
 ### Install
 
-With bower
-
 ```sh
 bower install --save mn-input
 ```
 
-Or just download the main files ```dist/mn-input.css, dist/mn-input.js``` in your project, and make a reference to their, like:
-
-```html
-<link rel="stylesheet" href="path/to/dist/mn-input.css">
-<script src="path/to/dist/vendor.js.js"></script>
-<script src="path/to/dist/mn-input.js"></script>
-```
+Or just download the main files, located in [dist/](https://github.com/minimalist-components/mn-input/tree/master/dist)
 
 ### Usage
 
