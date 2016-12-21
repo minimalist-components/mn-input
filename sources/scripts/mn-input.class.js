@@ -136,4 +136,4 @@ class MnInput extends HTMLElement {
   }
 }
 
-customElements.define('mn-input', MnInput)
+window.customElements.define('mn-input', MnInput)
