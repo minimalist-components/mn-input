@@ -10,6 +10,7 @@ mn-input {
   display: inline-block;
   margin: 1.5em .1em 1em;
   transform: translateZ(0);
+  overflow: visible !important;
 
   input {
     width: 100%;
