@@ -1,50 +1,40 @@
 html
   meta(name='viewport' content='width=device-width, user-scalable=no')
-  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css')
   link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans')
-  link(rel='stylesheet' href='mn-input.css')
+  //- link(rel='stylesheet' href='vendor.css')
+  //- link(rel='stylesheet' href='mn-input.css')
+  style
+    include ../../docs/vendor.css
+    include ../../dist/mn-input.css
+
   style.
-    body {
-      font-family: 'Open Sans', sans-serif;
-      -webkit-font-smoothing: antialiased;
+    mn-input {
+      font-size: 1.2rem;
+    }
+
+    form {width: 100%}
+
+    @media (min-width: 600px) {
+      form {
+        padding: 100px;
+        box-sizing: border-box;
+      }
     }
 body
-  h1(title='lero') Minimalist inputs
+  h2 mn-input
+  include github-corner
 
-  form(novalidate)
-    h2 mn-input
-    mn-input#username(placeholder='Username', required, autocapitalize='off')
-    mn-input(placeholder='Password', type='password')
-    mn-input(placeholder='Input Password', type='password', disabled)
-    mn-input(placeholder='Email', type='email')
-    //- button(type='submit') Send
+  .layout-fullscreen.layout-centered
+    .layout-container
+      form.layout-column.layout-sm-row
+        mn-input.flex(placeholder='username')
+        mn-input.flex(placeholder='password' type='password')
+        mn-input.flex(placeholder='email' type='email')
 
-  div
-    h2 mn-input[disabled]
-    mn-input(placeholder='Input', disabled)
 
-  div
-    h2 mn-input[type='text']
-    mn-input(placeholder='Username')
 
-  div
-    h2 mn-input[type='password']
-    mn-input(placeholder='Password', type='password')
-
-  div
-    h2 mn-input[type='email']
-    mn-input(placeholder='Email', type='email')
-  
-  script(src='vendor.js')
-  script(src='mn-input.js')
-  script.
-    'use strict';
-
-    let form = document.querySelector('form')
-    form.addEventListener('submit', validate)
-
-    function validate(event) {
-      form.classList.add('submitted')
-      event.preventDefault()
-    }
-
+  script
+    include ../../docs/vendor.js
+    include ../../dist/mn-input.js
+  //- script(src='vendor.js')
+  //- script(src='mn-input.js')
