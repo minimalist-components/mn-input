@@ -134,6 +134,16 @@ class MnInput extends HTMLElement {
       }
     }
   }
+
+  set value(value) {
+    const input = this.querySelector('input')
+    input.value = value
+  }
+
+  get value() {
+    const input = this.querySelector('input')
+    return input.value
+  }
 }
 
 window.customElements.define('mn-input', MnInput)
