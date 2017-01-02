@@ -1,6 +1,12 @@
 import browserSync from 'browser-sync'
 
 module.exports = {
+  specs: {
+    src: './sources/scripts/mn-input.spec.js',
+    options: {
+      browsers: ['chrome'],
+    },
+  },
   templates: {
     src: './sources/templates/index.jade',
     dest: './docs/',
@@ -37,5 +43,8 @@ module.exports = {
     notify: false,
     reloadDelay: 100,
     open: false,
+    logLevel: process.env.NODE_ENV === 'test'
+      ? 'silent'
+      : 'info',
   },
 }

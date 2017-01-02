@@ -2,4 +2,4 @@
 
 set -e
 
-./node_modules/testcafe/bin/testcafe.js chrome sources/scripts/mn-input.spec.js
+NODE_ENV="test" ./node_modules/gulp/bin/gulp.js test --silent
