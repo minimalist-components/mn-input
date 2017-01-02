@@ -16,6 +16,6 @@
     "document-register-element": "^1.2.0"
   },
   "devDependencies": {
-    "mn-gh-page": "0.0.8"
+    "mn-gh-page": "0.0.10"
   }
 }
