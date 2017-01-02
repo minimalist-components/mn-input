@@ -19,6 +19,41 @@ html
         box-sizing: border-box;
       }
     }
+
+    ul, li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    li:before {
+      content: '- ';
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    strong {
+      color: #e06c75;
+      background: #2b2b2d;
+      padding: .2em .5em;
+      border-radius: 5px;
+    }
+
+    strong.tag:before {
+      content: '<'
+    }
+
+    strong.tag:after {
+      content: '>'
+    }
+
+    strong.attribute {
+      color: #C3E88D;
+    }
 body
   h2 mn-input
   include github-corner
@@ -38,18 +73,20 @@ body
 
     h3 usage
 
-    p in your html, you can use the tag <strong>mn-input</strong> i.e.
+    p in your html, you can use the tag <strong class="tag">mn-input</strong> i.e.
     mn-code.html.
       <mn-input placeholder="Username"></mn-input>
 
-    p By default, the type is <strong>text</strong>, but you can use <strong>text</strong>, <strong>password</strong> and <strong>email</strong>. Example:
+    p By default, the type is <strong class="attribute">text</strong>, but you can use <strong class="attribute">password</strong> and <strong class="attribute">email</strong> too. Example:
     mn-code.html.
       <mn-input type="email" placeholder="Email"></mn-input>
 
     p Other attributes are supported, like:
 
     ul
-      li: a(href='http://www.w3schools.com/tags/att_input_placeholder.asp') type - only text, password and email
+      li
+        a(href='http://www.w3schools.com/tags/att_input_placeholder.asp') type 
+        | (only text, password and email)
       li: a(href='http://www.w3schools.com/tags/att_input_placeholder.asp') placeholder
       li: a(href='http://www.w3schools.com/tags/att_input_value.asp') value
       li: a(href='http://www.w3schools.com/tags/att_input_name.asp') name
