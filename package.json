@@ -4,7 +4,8 @@
   "version": "0.0.24",
   "description": "",
   "scripts": {
-    "test": "scripts/e2e.sh"
+    "test": "scripts/e2e.sh",
+    "start": "scripts/start.sh"
   },
   "keywords": [],
   "author": "Darlan Mendonça <darlanmendonca@gmail.com>",
