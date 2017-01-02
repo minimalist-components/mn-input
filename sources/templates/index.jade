@@ -1,10 +1,10 @@
 html
   meta(name='viewport' content='width=device-width, user-scalable=no')
 
-  link(rel='stylesheet' href='https://rawgit.com/minimalist-components/mn-input/master/docs/vendor.css')
-  link(rel='stylesheet' href='https://rawgit.com/minimalist-components/mn-input/master/dist/mn-input.css')
-  //- link(rel='stylesheet' href='docs/vendor.css')
-  //- link(rel='stylesheet' href='dist/mn-input.css')
+  //- link(rel='stylesheet' href='https://rawgit.com/minimalist-components/mn-input/master/docs/vendor.css')
+  //- link(rel='stylesheet' href='https://rawgit.com/minimalist-components/mn-input/master/dist/mn-input.css')
+  link(rel='stylesheet' href='docs/vendor.css')
+  link(rel='stylesheet' href='dist/mn-input.css')
 
   style.
     mn-input {
@@ -30,9 +30,38 @@ body
         mn-input.flex(placeholder='password' type='password')
         mn-input.flex(placeholder='email' type='email')
 
+  .docs.layout-container
+    mn-code.sh.
+      bower install --save mn-input
 
+    p Or just download the main files, located in dist/
 
-  script(src='https://rawgit.com/minimalist-components/mn-input/master/docs/vendor.js')
-  script(src='https://rawgit.com/minimalist-components/mn-input/master/dist/mn-input.js')
-  //- script(src='docs/vendor.js')
-  //- script(src='dist/mn-input.js')
+    h3 usage
+
+    p in your html, you can use the tag <strong>mn-input</strong> i.e.
+    mn-code.html.
+      <mn-input placeholder="Username"></mn-input>
+
+    p By default, the type is <strong>text</strong>, but you can use <strong>text</strong>, <strong>password</strong> and <strong>email</strong>. Example:
+    mn-code.html.
+      <mn-input type="email" placeholder="Email"></mn-input>
+
+    p Other attributes are supported, like:
+
+    ul
+      li: a(href='http://www.w3schools.com/tags/att_input_placeholder.asp') type - only text, password and email
+      li: a(href='http://www.w3schools.com/tags/att_input_placeholder.asp') placeholder
+      li: a(href='http://www.w3schools.com/tags/att_input_value.asp') value
+      li: a(href='http://www.w3schools.com/tags/att_input_name.asp') name
+      li: a(href='http://www.w3schools.com/tags/att_input_autofocus.asp') autofocus
+      li: a(href='http://www.w3schools.com/tags/att_input_maxlength.asp') maxlength
+      li: a(href='http://www.w3schools.com/tags/att_input_pattern.asp') pattern
+      li: a(href='http://www.w3schools.com/tags/att_input_readonly.asp') readonly
+      li: a(href='http://www.w3schools.com/tags/att_input_required.asp') required
+      li: a(href='http://www.w3schools.com/tags/att_input_disabled.asp') disabled
+      li: a(href='https://developers.google.com/web/updates/2015/04/autocapitalize') autocapitalize
+
+  //- script(src='https://rawgit.com/minimalist-components/mn-input/master/docs/vendor.js')
+  //- script(src='https://rawgit.com/minimalist-components/mn-input/master/dist/mn-input.js')
+  script(src='docs/vendor.js')
+  script(src='dist/mn-input.js')
