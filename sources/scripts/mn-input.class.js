@@ -11,13 +11,12 @@ class MnInput extends HTMLElement {
       this.placeholder = this.getAttribute('placeholder')
     }
 
-    // this.setPlaceholder()
     this.setInput()
     return self
   }
 
   setInput() {
-    let attributeSpecs = [
+    const attributeSpecs = [
       {
         name: 'type',
         default: 'text',
@@ -64,7 +63,7 @@ class MnInput extends HTMLElement {
       },
     ]
 
-    let input = document.createElement('input')
+    const input = document.createElement('input')
 
     let attributes = Array
       .from(this.attributes)
