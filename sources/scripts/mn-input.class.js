@@ -1,27 +1,19 @@
 class MnInput extends HTMLElement {
   constructor(self) {
     self = super(self)
-    this.setPlaceholder()
+    // set placeholder
+    const placeholder = document.createElement('label')
+    if (this.id) {
+      placeholder.setAttribute('for', this.id)
+    }
+    this.insertBefore(placeholder, this.firstChild)
+    if (this.getAttribute('placeholder')) {
+      this.placeholder = this.getAttribute('placeholder')
+    }
+
+    // this.setPlaceholder()
     this.setInput()
     return self
-  }
-
-  setPlaceholder() {
-    let placeholder = this.getAttribute('placeholder')
-    let id = this.getAttribute('id')
-
-    if (placeholder) {
-      let label = document.createElement('label')
-      label.textContent = this.getAttribute('disabled')
-        ? `${placeholder} disabled`
-        : placeholder
-
-      if (id) {
-        label.setAttribute('for', id)
-      }
-
-      this.insertBefore(label, this.firstChild)
-    }
   }
 
   setInput() {
@@ -69,10 +61,6 @@ class MnInput extends HTMLElement {
       },
       {
         name: 'autocapitalize',
-      },
-      {
-        name: 'id',
-        remove: true,
       },
     ]
 
@@ -133,6 +121,19 @@ class MnInput extends HTMLElement {
         input.setAttribute(attribute.name, attributeValue)
       }
     }
+  }
+
+  set placeholder(value) {
+    const isDisabled = this.getAttribute('disabled')
+    const label = this.querySelector('label')
+    label.textContent = isDisabled
+      ? `${value} disabled`
+      : value
+    this.setAttribute('placeholder', value)
+  }
+
+  get placeholder() {
+    return this.getAttribute('placeholder')
   }
 
   set value(value) {
