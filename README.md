@@ -1,4 +1,5 @@
 [![Bower version](https://badge.fury.io/bo/mn-input.svg)](https://badge.fury.io/bo/mn-input)
+[![Dependencies](https://requires.io/github/minimalist-components/mn-input/requirements.svg?branch=master)](https://requires.io/github/minimalist-components/mn-input/requirements/?branch=master)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)   
 
 
