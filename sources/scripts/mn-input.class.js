@@ -12,6 +12,9 @@ class MnInput extends HTMLElement {
     }
 
     this.setInput()
+
+    // set style
+    this.classList.add('mn-input')
     return self
   }
 
