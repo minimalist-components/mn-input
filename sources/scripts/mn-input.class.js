@@ -27,10 +27,6 @@ class MnInput extends HTMLElement {
         ],
       },
       {
-        name: 'placeholder',
-        default: 'undefined',
-      },
-      {
         name: 'value',
       },
       {
@@ -64,6 +60,14 @@ class MnInput extends HTMLElement {
     ]
 
     const input = document.createElement('input')
+    input.addEventListener('blur', () => {
+      const value = input.value
+      if (value) {
+        input.classList.add('has-value')
+      } else {
+        input.classList.remove('has-value')
+      }
+    })
 
     let attributes = Array
       .from(this.attributes)

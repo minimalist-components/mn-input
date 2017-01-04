@@ -27,7 +27,7 @@ mn-input {
   }
 
   input:focus + label,
-  input:not(:placeholder-shown) + label {
+  input.has-value + label {
     transform: translate(0, -1.3em) scale(.8) translateZ(0);
   }
 }
