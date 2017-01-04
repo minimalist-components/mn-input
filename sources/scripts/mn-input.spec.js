@@ -1,5 +1,4 @@
 import {expect} from 'chai'
-import {Selector} from 'testcafe'
 
 fixture `mn-input`
   .page('http://localhost:3000/demo.html')
