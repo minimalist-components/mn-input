@@ -1,8 +1,28 @@
 import {expect} from 'chai'
+import {Selector} from 'testcafe'
 
 fixture `mn-input`
   .page('http://localhost:3000/demo.html')
-  // .beforeEach(async page => await page.wait(5000))
+
+test('is visible', async page => {
+  const username = await page.select('#username')
+  const password = await page.select('#password')
+  const email = await page.select('#email')
+
+  expect(username.visible).to.be.true
+  expect(password.visible).to.be.true
+  expect(email.visible).to.be.true
+})
+
+test('display a placeholder', async page => {
+  const username = await page.select('#username')
+  const password = await page.select('#password')
+  const email = await page.select('#email')
+
+  expect(username.textContent).to.equal('username')
+  expect(password.textContent).to.equal('password')
+  expect(email.textContent).to.equal('email')
+})
 
 test('type value', async page => {
   await page.typeText('#username', 'John Snow')
