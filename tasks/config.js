@@ -8,7 +8,10 @@ module.exports = {
     },
   },
   templates: {
-    src: './sources/templates/index.jade',
+    src: [
+      './sources/templates/demo.jade',
+      './sources/templates/index.jade',
+    ],
     dest: './docs/',
   },
   styles: {
