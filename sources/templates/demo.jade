@@ -67,13 +67,3 @@ body
   block scripts
     script(src='docs/vendor.js')
     script(src='dist/mn-input.js')
-
-  //- script.
-    var form = document.querySelector('form')
-    form.setAttribute('novalidate', 'novalidate')
-    form.addEventListener('submit', submit)
-
-    function submit(event) {
-      form.classList.add('submitted')
-      event.preventDefault()
-    }
