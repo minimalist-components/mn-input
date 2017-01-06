@@ -150,7 +150,6 @@ class MnInput extends HTMLElement {
 
   validate() {
     if (this.closest('form.submitted')) {
-      console.log('validating')
       const input = this.querySelector('input')
       const patternMismatch = !RegExp(this.getAttribute('pattern') || '').test(input.value)
       const errors = {
