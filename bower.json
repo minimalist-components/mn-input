@@ -16,7 +16,7 @@
     "open-color": "^1.4.1"
   },
   "devDependencies": {
-    "mn-gh-page": "0.0.10",
+    "mn-gh-page": "^0.0.12",
     "mn-form": "^0.0.3"
   }
 }

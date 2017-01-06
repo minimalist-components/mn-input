@@ -157,9 +157,24 @@ class MnInput extends HTMLElement {
         required: input.validity.valueMissing,
       }
 
-      errors.invalid = Object.entries(errors).some(validation => validation[1])
+      Object.values = Object.values
+        ? Object.values
+        : objectValues
 
-      for (const [cssClass, invalid] of Object.entries(errors)) {
+      function objectValues(obj) {
+        const array = []
+        for (const key in obj) {
+          array.push(obj[key])
+        }
+        return array
+      }
+
+      errors.invalid = Object.values(errors).some(value => value)
+
+      for (const key in errors) {
+        const cssClass = key
+        const invalid = errors[key]
+
         invalid
           ? this.classList.add(cssClass)
           : this.classList.remove(cssClass)
