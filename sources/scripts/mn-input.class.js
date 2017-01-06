@@ -54,7 +54,11 @@ class MnInput extends HTMLElement {
 
     const input = document.createElement('input')
     input.addEventListener('focus', () => this.classList.add('focus'))
-    input.addEventListener('keyup', () => this.validate())
+    input.addEventListener('keyup', () => {
+      if (this.closest('form.submitted')) {
+        this.validate()
+      }
+    })
     input.addEventListener('blur', () => this.classList.remove('focus'))
     input.addEventListener('change', () => this.value = input.value)
 
@@ -130,7 +134,7 @@ class MnInput extends HTMLElement {
       this.classList.remove('has-value')
     }
 
-    if (input.value !== value) {
+    if (input.value !== value && this.closest('form.submitted')) {
       this.validate()
     }
   }
@@ -149,36 +153,34 @@ class MnInput extends HTMLElement {
   }
 
   validate() {
-    if (this.closest('form.submitted')) {
-      const input = this.querySelector('input')
-      const patternMismatch = !RegExp(this.getAttribute('pattern') || '').test(input.value)
-      const errors = {
-        pattern: patternMismatch,
-        required: input.validity.valueMissing,
+    const input = this.querySelector('input')
+    const patternMismatch = !RegExp(this.getAttribute('pattern') || '').test(input.value)
+    const errors = {
+      pattern: patternMismatch,
+      required: input.validity.valueMissing,
+    }
+
+    Object.values = Object.values
+      ? Object.values
+      : objectValues
+
+    function objectValues(obj) {
+      const array = []
+      for (const key in obj) {
+        array.push(obj[key])
       }
+      return array
+    }
 
-      Object.values = Object.values
-        ? Object.values
-        : objectValues
+    errors.invalid = Object.values(errors).some(value => value)
 
-      function objectValues(obj) {
-        const array = []
-        for (const key in obj) {
-          array.push(obj[key])
-        }
-        return array
-      }
+    for (const key in errors) {
+      const cssClass = key
+      const invalid = errors[key]
 
-      errors.invalid = Object.values(errors).some(value => value)
-
-      for (const key in errors) {
-        const cssClass = key
-        const invalid = errors[key]
-
-        invalid
-          ? this.classList.add(cssClass)
-          : this.classList.remove(cssClass)
-      }
+      invalid
+        ? this.classList.add(cssClass)
+        : this.classList.remove(cssClass)
     }
   }
 }
