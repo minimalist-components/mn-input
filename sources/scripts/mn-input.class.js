@@ -54,6 +54,7 @@ class MnInput extends HTMLElement {
 
     const input = document.createElement('input')
     input.addEventListener('focus', () => this.classList.add('focus'))
+    input.addEventListener('keyup', () => this.validate())
     input.addEventListener('blur', () => this.classList.remove('focus'))
     input.addEventListener('change', () => this.value = input.value)
 
@@ -141,6 +142,23 @@ class MnInput extends HTMLElement {
 
   blur() {
     this.querySelector('input').blur()
+  }
+
+  validate() {
+    const input = this.querySelector('input')
+    const patternMismatch = !RegExp(this.getAttribute('pattern') || '').test(input.value)
+    const errors = {
+      pattern: patternMismatch,
+      required: input.validity.valueMissing,
+    }
+
+    errors.invalid = Object.entries(errors).some(validation => validation[1])
+
+    for (const [cssClass, invalid] of Object.entries(errors)) {
+      invalid
+        ? this.classList.add(cssClass)
+        : this.classList.remove(cssClass)
+    }
   }
 }
 
