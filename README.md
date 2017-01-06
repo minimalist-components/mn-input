@@ -27,24 +27,6 @@ And then, in your html, you can use the tag ```mn-input``` i.e.
 <mn-input placeholder="Username"></mn-input>
 ```
 
-By default, the type is text, but you can use:
-
-- text
-- password
-- email
-
-Example:
-
-```html
-<!-- HTML -->
-<mn-input type="email" placeholder="Email"></mn-input>
-```
-
-```pug
-//- PUG/JADE
-mn-input(type='email' placeholder='email')
-```
-
 The following attributes from inputs are supported in this component
 
 - [type](http://www.w3schools.com/tags/att_input_placeholder.asp) - only text, password and email
