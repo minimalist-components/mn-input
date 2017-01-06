@@ -10,15 +10,15 @@ class MnInput extends HTMLElement {
 
     // set input
     const attributeSpecs = [
-      {
-        name: 'type',
-        default: 'text',
-        values: [
-          'text',
-          'password',
-          'email',
-        ],
-      },
+      // {
+      //   name: 'type',
+      //   default: 'text',
+      //   values: [
+      //     'text',
+      //     'password',
+      //     'email',
+      //   ],
+      // },
       {
         name: 'value',
       },
