@@ -129,7 +129,10 @@ class MnInput extends HTMLElement {
       input.value = ''
       this.classList.remove('has-value')
     }
-    this.validate()
+
+    if (input.value !== value) {
+      this.validate()
+    }
   }
 
   get value() {
@@ -146,19 +149,22 @@ class MnInput extends HTMLElement {
   }
 
   validate() {
-    const input = this.querySelector('input')
-    const patternMismatch = !RegExp(this.getAttribute('pattern') || '').test(input.value)
-    const errors = {
-      pattern: patternMismatch,
-      required: input.validity.valueMissing,
-    }
+    if (this.closest('form.submitted')) {
+      console.log('validating')
+      const input = this.querySelector('input')
+      const patternMismatch = !RegExp(this.getAttribute('pattern') || '').test(input.value)
+      const errors = {
+        pattern: patternMismatch,
+        required: input.validity.valueMissing,
+      }
 
-    errors.invalid = Object.entries(errors).some(validation => validation[1])
+      errors.invalid = Object.entries(errors).some(validation => validation[1])
 
-    for (const [cssClass, invalid] of Object.entries(errors)) {
-      invalid
-        ? this.classList.add(cssClass)
-        : this.classList.remove(cssClass)
+      for (const [cssClass, invalid] of Object.entries(errors)) {
+        invalid
+          ? this.classList.add(cssClass)
+          : this.classList.remove(cssClass)
+      }
     }
   }
 }
