@@ -129,6 +129,7 @@ class MnInput extends HTMLElement {
       input.value = ''
       this.classList.remove('has-value')
     }
+    this.validate()
   }
 
   get value() {
