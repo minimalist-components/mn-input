@@ -1,17 +1,14 @@
 class MnInput extends HTMLElement {
   constructor(self) {
     self = super(self)
-    this.setInput()
 
     // set style
     this.classList.add('mn-input')
     this.getAttribute('value')
       ? this.classList.add('has-value')
       : this.classList.remove('has-value')
-    return self
-  }
 
-  setInput() {
+    // set input
     const attributeSpecs = [
       {
         name: 'type',
@@ -56,8 +53,8 @@ class MnInput extends HTMLElement {
     ]
 
     const input = document.createElement('input')
-    input.addEventListener('focus', () => this.focus())
-    input.addEventListener('blur', () => this.blur())
+    input.addEventListener('focus', () => this.classList.add('focus'))
+    input.addEventListener('blur', () => this.classList.remove('focus'))
     input.addEventListener('change', () => this.value = input.value)
 
     let attributes = Array
@@ -115,6 +112,8 @@ class MnInput extends HTMLElement {
         input.setAttribute(attribute.name, attributeValue)
       }
     }
+
+    return self
   }
 
   set value(value) {
@@ -137,11 +136,11 @@ class MnInput extends HTMLElement {
   }
 
   focus() {
-    this.classList.add('focus')
+    this.querySelector('input').focus()
   }
 
   blur() {
-    this.classList.remove('focus')
+    this.querySelector('input').blur()
   }
 }
 

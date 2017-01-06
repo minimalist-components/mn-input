@@ -1,7 +1,7 @@
 $tickness: 1px;
 $focus-tickness: 2px;
-$border-color: map-get($mn-warning-color, 400);
-$label-color: map-get($mn-warning-color, 500);
+$border-color: $oc-red-5;
+$label-color: $oc-red-7;
 
 form.submitted .mn-input.invalid {
   input {
