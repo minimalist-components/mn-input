@@ -10,15 +10,6 @@ class MnInput extends HTMLElement {
 
     // set input
     const attributeSpecs = [
-      // {
-      //   name: 'type',
-      //   default: 'text',
-      //   values: [
-      //     'text',
-      //     'password',
-      //     'email',
-      //   ],
-      // },
       {
         name: 'value',
       },
@@ -32,9 +23,9 @@ class MnInput extends HTMLElement {
       {
         name: 'autofocus',
       },
-      // {
-      //   name: 'maxlength',
-      // },
+      {
+        name: 'maxlength',
+      },
       {
         name: 'pattern',
       },
@@ -47,9 +38,9 @@ class MnInput extends HTMLElement {
       {
         name: 'disabled',
       },
-      // {
-      //   name: 'autocapitalize',
-      // },
+      {
+        name: 'autocapitalize',
+      },
     ]
 
     const input = document.createElement('input')
@@ -156,7 +147,9 @@ class MnInput extends HTMLElement {
     const input = this.querySelector('input')
     const patternMismatch = !RegExp(this.getAttribute('pattern') || '').test(input.value)
     const errors = {
-      pattern: patternMismatch,
+      pattern: input.value
+        ? input.validity.patternMismatch
+        : patternMismatch,
       required: input.validity.valueMissing,
     }
 
