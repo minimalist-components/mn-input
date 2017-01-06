@@ -12,7 +12,7 @@
 
     font-size: 1em;
 
-    color: map-get($mn-black-color, 400);
+    color: $oc-gray-6;
     transition: transform .2s ease, color .2s ease;
     transform-origin: left center;
     transform: translateZ(0);
@@ -21,6 +21,7 @@
 
   &[disabled]:before {
     content: attr(placeholder) ' disabled';
+    color: $oc-gray-5;
   }
 
   &.focus:before, &.has-value:before {
