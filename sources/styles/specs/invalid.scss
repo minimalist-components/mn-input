@@ -3,13 +3,21 @@ $focus-tickness: 2px;
 $border-color: map-get($mn-warning-color, 400);
 $label-color: map-get($mn-warning-color, 500);
 
-form.submitted .mn-input {
-  input:invalid {
+form.submitted .mn-input.invalid {
+  input {
     box-shadow: 0 $tickness 0 $border-color;
     &:focus {box-shadow: 0 $focus-tickness 0 $border-color}
   }
 
-  input:invalid + label {
+  &:before {
     color: $label-color;
+  }
+
+  &.invalid:before {
+    content: attr(placeholder) ' is invalid'
+  }
+
+  &.required:before {
+    content: attr(placeholder) ' is required'
   }
 }

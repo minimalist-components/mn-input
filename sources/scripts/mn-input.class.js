@@ -1,16 +1,6 @@
 class MnInput extends HTMLElement {
   constructor(self) {
     self = super(self)
-    // set placeholder
-    const placeholder = document.createElement('label')
-    if (this.id) {
-      placeholder.setAttribute('for', this.id)
-    }
-    this.insertBefore(placeholder, this.firstChild)
-    if (this.getAttribute('placeholder')) {
-      this.placeholder = this.getAttribute('placeholder')
-    }
-
     this.setInput()
 
     // set style
@@ -20,15 +10,15 @@ class MnInput extends HTMLElement {
 
   setInput() {
     const attributeSpecs = [
-      {
-        name: 'type',
-        default: 'text',
-        values: [
-          'text',
-          'password',
-          'email',
-        ],
-      },
+      // {
+      //   name: 'type',
+      //   default: 'text',
+      //   values: [
+      //     'text',
+      //     'password',
+      //     'email',
+      //   ],
+      // },
       {
         name: 'value',
       },
@@ -42,9 +32,9 @@ class MnInput extends HTMLElement {
       {
         name: 'autofocus',
       },
-      {
-        name: 'maxlength',
-      },
+      // {
+      //   name: 'maxlength',
+      // },
       {
         name: 'pattern',
       },
@@ -57,20 +47,15 @@ class MnInput extends HTMLElement {
       {
         name: 'disabled',
       },
-      {
-        name: 'autocapitalize',
-      },
+      // {
+      //   name: 'autocapitalize',
+      // },
     ]
 
     const input = document.createElement('input')
-    input.addEventListener('blur', () => {
-      const value = input.value
-      if (value) {
-        input.classList.add('has-value')
-      } else {
-        input.classList.remove('has-value')
-      }
-    })
+    input.addEventListener('focus', () => this.focus())
+    input.addEventListener('blur', () => this.blur())
+    input.addEventListener('change', () => this.value = input.value)
 
     let attributes = Array
       .from(this.attributes)
@@ -129,27 +114,31 @@ class MnInput extends HTMLElement {
     }
   }
 
-  set placeholder(value) {
-    const isDisabled = this.getAttribute('disabled')
-    const label = this.querySelector('label')
-    label.textContent = isDisabled
-      ? `${value} disabled`
-      : value
-    this.setAttribute('placeholder', value)
-  }
-
-  get placeholder() {
-    return this.getAttribute('placeholder')
-  }
-
   set value(value) {
     const input = this.querySelector('input')
-    input.value = value
+
+    if (value) {
+      if (input.value !== value) {
+        input.value = value
+      }
+      this.classList.add('has-value')
+    } else {
+      input.value = ''
+      this.classList.remove('has-value')
+    }
   }
 
   get value() {
     const input = this.querySelector('input')
     return input.value
+  }
+
+  focus() {
+    this.classList.add('focus')
+  }
+
+  blur() {
+    this.classList.remove('focus')
   }
 }
 

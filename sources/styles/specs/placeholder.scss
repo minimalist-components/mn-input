@@ -1,5 +1,6 @@
 .mn-input {
-  label {
+  &:before {
+    content: attr(placeholder);
     position: absolute;
     top: 5px;
     left: .1em;
@@ -18,16 +19,11 @@
     pointer-events: none;
   }
 
-  // input:focus + label {
-  //   color: map-get($mn-primary-color, 900);
-  // }
-
-  input:disabled + label {
-    color: map-get($mn-black-color, 200);
+  &[disabled]:before {
+    content: attr(placeholder) ' disabled';
   }
 
-  input:focus + label,
-  input.has-value + label {
+  &.focus:before, &.has-value:before {
     transform: translate(0, -1.3em) scale(.8) translateZ(0);
   }
 }
