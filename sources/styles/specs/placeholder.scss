@@ -23,7 +23,7 @@
     color: $oc-gray-5;
   }
 
-  &.focus:before, &.has-value:before {
+  &.focused:before, &.has-value:before {
     transform: translate(0, -1.3em) scale(.8) translateZ(0);
   }
 }

@@ -5,6 +5,17 @@
   transform: translateZ(0);
   overflow: visible !important;
   outline: 0 !important;
+  margin-bottom: .5em;
+  box-shadow: 0 1px 0 $oc-gray-5;
+
+  &.focused {
+    box-shadow: 0 2px 0 $oc-gray-8;
+  }
+
+  &:disabled {
+    box-shadow: 0 1px 0 $oc-gray-5;
+    color: $oc-gray-6;
+  }
 
   input {
     width: 100%;
@@ -14,28 +25,16 @@
     font-size: 1em;
     box-sizing: border-box;
     padding: 0 .1em;
-    margin-bottom: .5em;
     appearance: none;
     border-radius: 0;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     transition: box-shadow .2s ease;
     text-overflow: ellipsis;
     background-color: transparent;
-    box-shadow: 0 1px 0 $oc-gray-5;
     color: $oc-gray-9;
 
     &[readonly] {
       pointer-events: none;
-    }
-
-    &:focus {
-      box-shadow: 0 2px 0 $oc-gray-8;
-    }
-
-
-    &:disabled {
-      box-shadow: 0 1px 0 $oc-gray-5;
-      color: $oc-gray-6;
     }
   }
 }

@@ -44,13 +44,13 @@ class MnInput extends HTMLElement {
     ]
 
     const input = document.createElement('input')
-    input.addEventListener('focus', () => this.classList.add('focus'))
+    input.addEventListener('focus', () => this.classList.add('focused'))
     input.addEventListener('keyup', () => {
       if (this.closest('form.submitted')) {
         this.validate()
       }
     })
-    input.addEventListener('blur', () => this.classList.remove('focus'))
+    input.addEventListener('blur', () => this.classList.remove('focused'))
     input.addEventListener('change', () => this.value = input.value)
 
     let attributes = Array
@@ -137,10 +137,12 @@ class MnInput extends HTMLElement {
 
   focus() {
     this.querySelector('input').focus()
+    this.classList.add('focused')
   }
 
   blur() {
     this.querySelector('input').blur()
+    this.classList.remove('focused')
   }
 
   validate() {

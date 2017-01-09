@@ -4,10 +4,8 @@ $border-color: $oc-red-5;
 $label-color: $oc-red-7;
 
 form.submitted .mn-input.invalid {
-  input {
-    box-shadow: 0 $tickness 0 $border-color;
-    &:focus {box-shadow: 0 $focus-tickness 0 $border-color}
-  }
+  box-shadow: 0 $tickness 0 $border-color;
+  &.focused {box-shadow: 0 $focus-tickness 0 $border-color}
 
   &:before {
     color: $label-color;
