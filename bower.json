@@ -1,6 +1,5 @@
 {
   "name": "mn-input",
-  "version": "0.0.34",
   "description": "A text input component with minimalist design",
   "main": [
     "dist/mn-input.css",
