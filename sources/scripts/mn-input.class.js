@@ -147,35 +147,38 @@ class MnInput extends HTMLElement {
 
   validate() {
     const input = this.querySelector('input')
-    const patternMismatch = !RegExp(this.getAttribute('pattern') || '').test(input.value)
-    const errors = {
-      pattern: input.value
-        ? input.validity.patternMismatch
-        : patternMismatch,
-      required: input.validity.valueMissing,
-    }
 
-    Object.values = Object.values
-      ? Object.values
-      : objectValues
-
-    function objectValues(obj) {
-      const array = []
-      for (const key in obj) {
-        array.push(obj[key])
+    if (input) {
+      const patternMismatch = !RegExp(this.getAttribute('pattern') || '').test(input.value)
+      const errors = {
+        pattern: input.value
+          ? input.validity.patternMismatch
+          : patternMismatch,
+        required: input.validity.valueMissing,
       }
-      return array
-    }
 
-    errors.invalid = Object.values(errors).some(value => value)
+      Object.values = Object.values
+        ? Object.values
+        : objectValues
 
-    for (const key in errors) {
-      const cssClass = key
-      const invalid = errors[key]
+      function objectValues(obj) {
+        const array = []
+        for (const key in obj) {
+          array.push(obj[key])
+        }
+        return array
+      }
 
-      invalid
-        ? this.classList.add(cssClass)
-        : this.classList.remove(cssClass)
+      errors.invalid = Object.values(errors).some(value => value)
+
+      for (const key in errors) {
+        const cssClass = key
+        const invalid = errors[key]
+
+        invalid
+          ? this.classList.add(cssClass)
+          : this.classList.remove(cssClass)
+      }
     }
   }
 }
