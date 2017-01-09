@@ -12,9 +12,10 @@
     box-shadow: 0 2px 0 $oc-gray-8;
   }
 
-  &:disabled {
+  &[disabled] {
     box-shadow: 0 1px 0 $oc-gray-5;
     color: $oc-gray-6;
+    pointer-events: none;
   }
 
   input {
