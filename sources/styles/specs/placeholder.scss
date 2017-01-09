@@ -2,7 +2,7 @@
   &:before {
     content: attr(placeholder);
     position: absolute;
-    top: 5px;
+    top: 0;
     left: .1em;
     user-select: none;
     white-space: nowrap;
