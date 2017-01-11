@@ -12,11 +12,11 @@
   "license": "MIT",
   "homepage": "",
   "dependencies": {
-    "document-register-element": "^1.2.0",
+    "document-register-element": "^1.3.0",
     "open-color": "^1.4.1"
   },
   "devDependencies": {
     "mn-gh-page": "^0.0.12",
-    "mn-form": "^0.0.3"
+    "mn-form": "^0.0.5"
   }
 }
