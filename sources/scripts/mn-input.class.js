@@ -150,16 +150,17 @@ class MnInput extends HTMLElement {
 
     if (input) {
       const patternMismatch = !RegExp(this.getAttribute('pattern') || '').test(input.value)
+      const hasValue = this.value !== ''
       const rangeOverflow = this.getAttribute('max')
-        ? this.value > this.getAttribute('max')
+        ? hasValue && this.value > this.getAttribute('max')
         : false
 
       const rangeUnderflow = this.getAttribute('min')
-        ? this.value < this.getAttribute('min')
+        ? hasValue && this.value < this.getAttribute('min')
         : false
 
       const stepMismatch = this.getAttribute('step')
-        ? (this.value % this.getAttribute('step')) !== 0
+        ? hasValue && (this.value % this.getAttribute('step')) !== 0
         : false
 
       const errors = {

@@ -1,6 +1,6 @@
 {
   "name": "mn-input",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "description": "A text input component with minimalist design",
   "main": [
     "dist/mn-input.css",
@@ -17,6 +17,6 @@
   },
   "devDependencies": {
     "mn-gh-page": "^0.0.12",
-    "mn-form": "^0.0.5"
+    "mn-form": "^0.0.7"
   }
 }
