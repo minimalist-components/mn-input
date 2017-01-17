@@ -1,7 +1,7 @@
 {
   "name": "mn-input",
   "private": true,
-  "version": "0.0.40",
+  "version": "0.0.41",
   "description": "",
   "scripts": {
     "test": "scripts/e2e.sh",

@@ -71,7 +71,9 @@ class MnInput extends HTMLElement {
         this.removeAttribute(attr.name)
       })
 
-    this.insertBefore(input, this.firstChild)
+    if (!this.querySelector('input')) {
+      this.insertBefore(input, this.firstChild)
+    }
 
     function getNameAndValue(attr) {
       let name = attr.name
