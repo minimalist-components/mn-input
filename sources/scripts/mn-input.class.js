@@ -55,7 +55,11 @@ class MnInput extends HTMLElement {
 
     let attributes = Array
       .from(this.attributes)
-      .map(getNameAndValue)
+      .map(attr => {
+        const name = attr.name
+        const value = attr.value
+        return {name, value}
+      })
 
     let defaultAttibutes = attributeSpecs
       .filter(defaults)
@@ -73,11 +77,7 @@ class MnInput extends HTMLElement {
 
     this.insertBefore(input, this.firstChild)
 
-    function getNameAndValue(attr) {
-      let name = attr.name
-      let value = attr.value
-      return {name, value}
-    }
+    return self
 
     function defaults(attribute) {
       return attribute.hasOwnProperty('default')
@@ -108,8 +108,6 @@ class MnInput extends HTMLElement {
         input.setAttribute(attribute.name, attributeValue)
       }
     }
-
-    return self
   }
 
   set value(value) {
