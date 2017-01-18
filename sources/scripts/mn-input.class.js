@@ -4,7 +4,12 @@ class MnInput extends HTMLElement {
 
     // set style
     this.classList.add('mn-input')
-    this.getAttribute('value') !== undefined
+    const value = this.getAttribute('value')
+    const hasValue = value !== null
+      &&  value !== undefined
+      && value !== ''
+
+    hasValue
       ? this.classList.add('has-value')
       : this.classList.remove('has-value')
 
@@ -62,7 +67,7 @@ class MnInput extends HTMLElement {
       })
 
     let defaultAttibutes = attributeSpecs
-      .filter(defaults)
+      .filter(attr => attr.hasOwnProperty('default'))
       .filter(notImplemented)
 
     attributes = attributes.concat(defaultAttibutes)
@@ -78,10 +83,6 @@ class MnInput extends HTMLElement {
     this.insertBefore(input, this.firstChild)
 
     return self
-
-    function defaults(attribute) {
-      return attribute.hasOwnProperty('default')
-    }
 
     function notImplemented(defaultAttr) {
       return !attributes.some(attribute => attribute.name === defaultAttr.name)
@@ -112,8 +113,8 @@ class MnInput extends HTMLElement {
 
   set value(value) {
     const input = this.querySelector('input')
-
-    if (value !== undefined) {
+    const hasValue = value !== null &&  value !== undefined && value !== ''
+    if (hasValue) {
       if (input.value !== value) {
         input.value = value
       }
