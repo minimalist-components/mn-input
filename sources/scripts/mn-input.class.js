@@ -4,7 +4,7 @@ class MnInput extends HTMLElement {
 
     // set style
     this.classList.add('mn-input')
-    this.getAttribute('value')
+    this.getAttribute('value') !== undefined
       ? this.classList.add('has-value')
       : this.classList.remove('has-value')
 
