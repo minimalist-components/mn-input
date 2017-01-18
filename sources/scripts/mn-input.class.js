@@ -113,13 +113,13 @@ class MnInput extends HTMLElement {
   set value(value) {
     const input = this.querySelector('input')
 
-    if (value) {
+    if (value !== undefined) {
       if (input.value !== value) {
         input.value = value
       }
       this.classList.add('has-value')
     } else {
-      input.value = ''
+      input.value = undefined
       this.classList.remove('has-value')
     }
 
