@@ -120,7 +120,7 @@ class MnInput extends HTMLElement {
       }
       this.classList.add('has-value')
     } else {
-      input.value = undefined
+      input.value = ''
       this.classList.remove('has-value')
     }
 
