@@ -8,7 +8,9 @@ A input component (type text), with minimalist design.
 
 See the [demo](https://minimalist-components.github.io/mn-input/)
 
-[![preview demo](https://raw.githubusercontent.com/minimalist-components/mn-input/master/sources/example/mn-input.gif)](https://minimalist-components.github.io/mn-input/)
+<a href="https://minimalist-components.github.io/mn-input/">
+<img src="https://raw.githubusercontent.com/minimalist-components/mn-input/master/preview.gif">
+</a>
 
 ### Install
 
