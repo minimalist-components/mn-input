@@ -59,7 +59,7 @@
     "mn-gh-page": "git+https://github.com/minimalist-components/gh-page.git",
     "package-files": "0.0.5",
     "require-all": "^2.0.0",
-    "testcafe": "^0.11.1",
+    "testcafe": "^0.12.1",
     "testcafe-browser-provider-phantomjs": "^1.0.0"
   }
 }
