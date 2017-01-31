@@ -22,40 +22,31 @@ body
   h2 mn-input
   include github-corner
 
-  .layout-fullscreen.layout-centered
-    .layout-container
-      mn-form.layout-column.layout-sm-row
+  .mn-layout-fullscreen.mn-layout-centered
+    .mn-layout-container
+      mn-form.mn-layout-column.mn-layout-sm-row
         mn-input.flex#username(placeholder='username')
         mn-input.flex#firstname(placeholder='firtname')
         mn-input.flex#lastname(placeholder='lastname')
         //- button submit
 
-  .docs.layout-container
+  .docs.mn-layout-container
     mn-code.sh.
-      # to install this module
-      bower install --save mn-input
+      npm install --save mn-input
 
-    p Or just download the main files, located in dist/
+    p And bundle dependencies and main files in <strong>dist/</strong> with your preferred tool.
 
     h3 usage
-
     p in your html, you can use the tag <strong class="tag">mn-input</strong> i.e.
     mn-code.html.
       <mn-input placeholder="Username"></mn-input>
 
-    p Other attributes are supported, like:
+    p Other attributes are supported, like <em>placeholder</em>, <em>value</em>, <em>name</em>, <em>autofocus</em>, <em>maxlength</em>, <em>pattern</em>, <em>readonly</em>, <em>required</em>, <em>disabled</em>, and <em>autocapitalize</em>
 
-    ul
-      li: a(href='http://www.w3schools.com/tags/att_input_placeholder.asp') placeholder
-      li: a(href='http://www.w3schools.com/tags/att_input_value.asp') value
-      li: a(href='http://www.w3schools.com/tags/att_input_name.asp') name
-      li: a(href='http://www.w3schools.com/tags/att_input_autofocus.asp') autofocus
-      li: a(href='http://www.w3schools.com/tags/att_input_maxlength.asp') maxlength
-      li: a(href='http://www.w3schools.com/tags/att_input_pattern.asp') pattern
-      li: a(href='http://www.w3schools.com/tags/att_input_readonly.asp') readonly
-      li: a(href='http://www.w3schools.com/tags/att_input_required.asp') required
-      li: a(href='http://www.w3schools.com/tags/att_input_disabled.asp') disabled
-      li: a(href='https://developers.google.com/web/updates/2015/04/autocapitalize') autocapitalize
+    h3 types
+    p if you need another type of input, like password, or number, see other mn-components like <strong class="tag">mn-password</strong>, or <strong class="tag">mn-number</strong>.
+    p they are in separated, to produce a clean code, and detailed care about UX.
+
 
   block scripts
     script(src='docs/vendor.js')

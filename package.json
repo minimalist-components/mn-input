@@ -1,15 +1,32 @@
 {
   "name": "mn-input",
-  "private": true,
-  "version": "0.0.48",
-  "description": "",
+  "version": "0.0.1",
+  "description": "a input component (type text), with minimalist design",
   "scripts": {
-    "test": "scripts/e2e.sh",
-    "start": "scripts/start.sh"
+    "start": "scripts/start.sh",
+    "bundle": "scripts/bundle.sh",
+    "test": "scripts/e2e.sh"
   },
-  "keywords": [],
-  "author": "Darlan Mendonça <darlanmendonca@gmail.com>",
+  "keywords": [
+    "minimalist",
+    "webcomponent",
+    "input",
+    "form"
+  ],
+  "author": "Darlan Mendonça <darlanmendonca@gmail.com> (https://github.com/darlanmendonca)",
+  "homepage": "minimalist-components.github.io/mn-input/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/minimalist-components/mn-input.git"
+  },
+  "bugs": {
+    "url": "https://github.com/minimalist-components/mn-input/issues"
+  },
   "license": "MIT",
+  "dependencies": {
+    "document-register-element": "^1.3.0",
+    "open-color": "^1.4.2"
+  },
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-preset-es2015": "^6.14.0",
@@ -22,6 +39,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^2.3.2",
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^3.0.1",
     "gulp-inject": "^4.2.0",
@@ -34,6 +52,8 @@
     "gulp-sync": "^0.1.4",
     "gulp-testcafe": "^0.9.0",
     "gulp-uglify": "^2.0.0",
+    "mn-gh-page": "git+https://github.com/minimalist-components/gh-page.git",
+    "package-files": "0.0.5",
     "require-all": "^2.0.0",
     "testcafe": "^0.11.1",
     "testcafe-browser-provider-phantomjs": "^1.0.0"

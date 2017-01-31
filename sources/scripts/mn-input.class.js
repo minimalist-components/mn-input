@@ -1,6 +1,7 @@
 class MnInput extends HTMLElement {
   constructor(self) {
     self = super(self)
+    console.log('called')
 
     // set style
     this.classList.add('mn-input')
@@ -12,6 +13,9 @@ class MnInput extends HTMLElement {
     hasValue
       ? this.classList.add('has-value')
       : this.classList.remove('has-value')
+
+    // // empty element
+    // this.innerHTML = ''
 
     // set input
     const attributeSpecs = [
