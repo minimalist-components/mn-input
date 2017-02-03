@@ -200,3 +200,4 @@ class MnInput extends HTMLElement {
 }
 
 window.customElements.define('mn-input', MnInput)
+window.MnInput = MnInput
