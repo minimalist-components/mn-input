@@ -8,6 +8,8 @@ gulp.task('vendorCSS', vendorCSSTask)
 function vendorCSSTask() {
   const devDependencies = [
     'mn-gh-page',
+    'mn-form',
+    'mn-button',
   ]
 
   const dependencies = packageFiles(devDependencies)

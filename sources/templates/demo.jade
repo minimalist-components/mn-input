@@ -25,10 +25,11 @@ body
   .mn-layout-fullscreen.mn-layout-centered
     .mn-layout-container
       mn-form.mn-layout-column.mn-layout-sm-row
+        mn-input.flex(placeholder='num' max='10')
         mn-input.flex#username(placeholder='username')
         mn-input.flex#firstname(placeholder='firtname')
         mn-input.flex#lastname(placeholder='lastname')
-        //- button submit
+        button.mn-button(type='submit') submit
 
   .docs.mn-layout-container
     mn-code.sh.
@@ -51,7 +52,7 @@ body
   block scripts
     script(src='docs/vendor.js')
     script(src='dist/mn-input.js')
-    //- script.
+    script.
       var form = document.querySelector('mn-form')
       form.onSubmit = function() {
         console.log('submit')
