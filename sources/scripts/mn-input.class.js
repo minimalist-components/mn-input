@@ -161,16 +161,16 @@ class MnInput extends HTMLElement {
         ? hasValue && this.value < Number(this.getAttribute('min'))
         : false
 
-      const stepMismatch = this.getAttribute('step')
-        ? hasValue && (this.value % Number(this.getAttribute('step'))) !== 0
-        : false
+      // const stepMismatch = this.getAttribute('step')
+      //   ? hasValue && (this.value % Number(this.getAttribute('step'))) !== 0
+      //   : false
 
       const errors = {
         required: input.validity.valueMissing,
         pattern: patternMismatch,
         rangeOverflow,
         rangeUnderflow,
-        stepMismatch,
+        // stepMismatch,
       }
 
       Object.values = Object.values
