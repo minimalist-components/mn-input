@@ -59,7 +59,17 @@ class MnInput extends HTMLElement {
       }
     })
     input.addEventListener('blur', () => this.classList.remove('focused'))
-    input.addEventListener('change', () => this.value = input.value)
+    input.addEventListener('change', () => {
+      if (input.value) {
+        this.classList.add('has-value')
+      } else {
+        this.classList.remove('has-value')
+      }
+
+      if (this.closest('form.submitted')) {
+        this.validate()
+      }
+    })
 
     let attributes = Array
       .from(this.attributes)
@@ -121,10 +131,8 @@ class MnInput extends HTMLElement {
       if (input.value !== value) {
         input.value = value
       }
-      this.classList.add('has-value')
     } else {
       input.value = ''
-      this.classList.remove('has-value')
     }
 
     if (input.value !== value && this.closest('form.submitted')) {
