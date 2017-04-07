@@ -38,16 +38,15 @@ module.exports = {
   browserSync: browserSync.create(),
   browserSyncOptions: {
     server: {
+      index: 'demo.html',
       baseDir: [
         './docs',
         '.',
       ],
     },
     notify: false,
+    ui: false,
     reloadDelay: 100,
     open: false,
-    logLevel: process.env.NODE_ENV === 'test'
-      ? 'silent'
-      : 'info',
   },
 }
