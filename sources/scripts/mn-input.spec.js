@@ -1,7 +1,7 @@
 import {expect} from 'chai'
 
 fixture `mn-input`
-  .page('http://localhost:3000/demo.html')
+  .page('http://localhost:8080/docs/demo.html')
 
 test('is visible', async page => {
   const username = await page.select('#username')
